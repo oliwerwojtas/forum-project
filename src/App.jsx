@@ -1,11 +1,11 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import reactLogo from "./assets/react.svg";
+import "../dist/output.css";
 import "./App.css";
-import HomePage from "./pages/HomePage";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import Create from "./pages/Create";
-import Details from "./pages/Details";
+import HomePage from "./pages/homepage/HomePage";
+import Login from "./pages/login/Login";
+import Signup from "./pages/signup/Signup";
+import Create from "./pages/create/Create";
+import Details from "./pages/details/Details";
 import RootLayout from "./pages/RootLayout";
 import ErrorPage from "./pages/ErrorPage";
 
@@ -26,6 +26,7 @@ const router = createBrowserRouter([
 
 function App() {
   return <RouterProvider router={router} />;
+  // return <h1 className="text-5xl font-bold underline">xdd</h1>;
 }
 
 export default App;
