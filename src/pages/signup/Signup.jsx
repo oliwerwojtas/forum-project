@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSignup } from "../../hooks/useSignup";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -6,9 +7,11 @@ const Signup = () => {
   const [displayName, setDisplayName] = useState("");
   const [image, setImage] = useState(null);
   const [imageError, setImageError] = useState(null);
+  const { signup, isPending, error } = useSignup();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    signup(email, password, displayName, image);
   };
 
   const handleFileChange = (e) => {
