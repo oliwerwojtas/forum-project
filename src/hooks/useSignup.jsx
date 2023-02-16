@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { projectAuth, projectStorage } from "../firebase/config";
+import { projectAuth, projectStorage, projectFirestore } from "../firebase/config";
 
 export const useSignup = () => {
   const [error, setError] = useState(null);
@@ -23,6 +23,13 @@ export const useSignup = () => {
       const imgUrl = await img.ref.getDownloadURL();
       // add display name to user
       await createUser.user.updateProfile({ displayName, photoURL: imgUrl });
+
+      //create document
+      await projectFirestore.collection("users").doc(createUser.user.uid).set({
+        online: true,
+        displayName,
+        photoURL: imgUrl,
+      });
 
       // dispatch login action
     } catch (err) {
