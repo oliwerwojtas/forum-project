@@ -1,5 +1,10 @@
+import { useState } from "react";
+
 const Login = () => {
-  return <div className="text-6xl text-red-500">Login</div>;
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  return <div>test</div>;
 };
 
 export default Login;

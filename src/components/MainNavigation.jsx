@@ -1,9 +1,12 @@
 import { NavLink } from "react-router-dom";
+import { useLogout } from "../hooks/useLogout";
 import Logo from "../assets/logo.svg";
 
 import "./MainNavigation.css";
 
 const MainNavigation = () => {
+  const { logout, error, isPending } = useLogout();
+
   return (
     <nav className="w-full py-8 px-0 box-border navbar">
       <ul className="flex justify-end items-center">
@@ -19,7 +22,9 @@ const MainNavigation = () => {
           <NavLink to="/signup">Signup</NavLink>
         </li>
         <li>
-          <button className="btn">Logout</button>
+          <button className="btn" onClick={logout}>
+            Loging out...
+          </button>
         </li>
       </ul>
     </nav>
