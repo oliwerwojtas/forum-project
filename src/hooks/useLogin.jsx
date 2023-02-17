@@ -1,24 +1,20 @@
 import { useState } from "react";
 import { projectAuth, projectFirestore } from "../firebase/config";
-import { authActions } from "../store/index";
-import { useDispatch } from "react-redux";
 
-export const useLogout = () => {
+export const useLogin = () => {
   const [error, setError] = useState(null);
   const [isPending, setIsPending] = useState(false);
-  const dispatch = useDispatch();
 
-  const logout = async () => {
+  const login = async (email, password) => {
     setError(null);
     setIsPending(true);
 
     try {
-      await projectFirestore.collection("users").doc(user.uid).update({
-        online: false,
-      });
-      await projectAuth.signOut();
+      await projectAuth.signInWithEmailAndPassword(email, password);
 
-      dispatch(authActions.logout());
+      await projectFirestore.collection("users").doc(user.uid).update({
+        online: true,
+      });
 
       setIsPending(false);
       setError(null);
@@ -29,5 +25,5 @@ export const useLogout = () => {
     }
   };
 
-  return { logout, error, isPending };
+  return { login, error, isPending };
 };

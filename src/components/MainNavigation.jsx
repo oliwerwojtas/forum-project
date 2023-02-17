@@ -3,9 +3,11 @@ import { useLogout } from "../hooks/useLogout";
 import Logo from "../assets/logo.svg";
 
 import "./MainNavigation.css";
+import { authActions } from "../store";
 
 const MainNavigation = () => {
   const { logout, error, isPending } = useLogout();
+  const { user } = authActions;
 
   return (
     <nav className="w-full py-8 px-0 box-border navbar">

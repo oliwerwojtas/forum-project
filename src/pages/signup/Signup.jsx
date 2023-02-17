@@ -42,7 +42,7 @@ const Signup = () => {
 
   return (
     <div className="flex max-h-[45rem] w-auto justify-center items-center mt-4">
-      <form className="flex-col w-90 bg-amber-300 p-6 rounded-md" onSubmit={handleSubmit}>
+      <form className="flex-col w-96 bg-amber-300 p-6 rounded-md" onSubmit={handleSubmit}>
         <h2 className="text-center ">Sing up</h2>
         <label className="block my-6 mx-auto">
           <span className="block mb-6">email:</span>
@@ -64,7 +64,7 @@ const Signup = () => {
             value={password}
           />
         </label>
-        <label className="bg-emerald-700 block my-6 mx-auto">
+        <label className="bg-emerald-700 block my-6 mx-auto text">
           <span className="block mb-6">name</span>
           <input
             className="w-full py-3 px-2 text-base"

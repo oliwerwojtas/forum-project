@@ -26,7 +26,6 @@ const router = createBrowserRouter([
 
 function App() {
   return <RouterProvider router={router} />;
-  // return <h1 className="text-5xl font-bold underline">xdd</h1>;
 }
 
 export default App;

@@ -1,5 +1,9 @@
-@import "tailwindcss/base";
+@tailwindcss base;
 
-@import "tailwindcss/components";
+@tailwindcss components;
 
-@import "tailwindcss/utilities";
+@tailwindcss utilities;
+
+body {
+  background-color: #cfcbcb;
+}
