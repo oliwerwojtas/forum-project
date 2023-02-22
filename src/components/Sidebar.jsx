@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import Icon from "../assets/dashboard.svg";
+
 const Sidebar = () => {
   return (
     <div className=" bg-sky-500 h-[100vh]">

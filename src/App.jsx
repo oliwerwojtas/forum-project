@@ -1,4 +1,5 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, redirect } from "react-router-dom";
+import { useAuthContext } from "./hooks/useAuthContext";
 import "../dist/output.css";
 import "./App.css";
 import HomePage from "./pages/homepage/HomePage";
@@ -25,7 +26,9 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  const { authIsReady } = useAuthContext();
+
+  return <div>{authIsReady && <RouterProvider router={router} />}</div>;
 }
 
 export default App;

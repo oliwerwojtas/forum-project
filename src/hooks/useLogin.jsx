@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { projectAuth, projectFirestore } from "../firebase/config";
-import { authActions } from "../store";
-import { useDispatch } from "react-redux";
-
+import { useAuthContext } from "./useAuthContext";
 export const useLogin = () => {
   const [error, setError] = useState(null);
   const [isPending, setIsPending] = useState(false);
-  const dispatch = useDispatch();
+  const { dispatch } = useAuthContext();
 
   const login = async (email, password) => {
     setError(null);
@@ -19,7 +17,7 @@ export const useLogin = () => {
         online: true,
       });
 
-      dispatch(authActions.login());
+      dispatch({ type: "LOGIN", payload: response.user });
 
       setIsPending(false);
       setError(null);

@@ -1,22 +1,8 @@
 import { useState } from "react";
 import { useLogin } from "../../hooks/useLogin";
-import { useDispatch, useSelector } from "react-redux";
-import { counterActions } from "../../store/index";
-
+import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../hooks/useAuthContext";
 const Login = () => {
-  const counter = useSelector((state) => state.counter);
-  const show = useSelector((state) => state.showCounter);
-
-  const dispatch = useDispatch();
-
-  const incre = () => {
-    dispatch(counterActions.increment());
-  };
-
-  const decre = () => {
-    dispatch(counterActions.decrement());
-  };
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, error, isPending } = useLogin();
@@ -28,9 +14,7 @@ const Login = () => {
 
   return (
     <div className="flex max-h-[45rem] w-auto justify-center items-center mt-4">
-      <button onClick={incre}>Incre</button>
-      <button onClick={decre}>Decre</button>
-      <div>{counter}</div>
+      <div></div>
       <form className="flex-col w-96 bg-amber-300 p-6 rounded-md" onSubmit={handleSubmit}>
         <h2 className="text-center ">Log in</h2>
         <label className="block my-6 mx-auto">

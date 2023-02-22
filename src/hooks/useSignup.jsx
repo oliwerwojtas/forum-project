@@ -1,14 +1,11 @@
 import { useState } from "react";
 import { projectAuth, projectStorage, projectFirestore } from "../firebase/config";
-import { authActions } from "../store/index";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useAuthContext } from "./useAuthContext";
 
 export const useSignup = () => {
   const [error, setError] = useState(null);
   const [isPending, setIsPending] = useState(false);
-  const user = useSelector((state) => state.user);
-  const dispatch = useDispatch();
+  const { dispatch } = useAuthContext();
 
   const signup = async (email, password, displayName, image) => {
     setError(null);
@@ -36,7 +33,7 @@ export const useSignup = () => {
         photoURL: imgUrl,
       });
 
-      dispatch(authActions.login({ payload: createUser.user.uid }));
+      dispatch({ type: "LOGIN", payload: createUser.user });
 
       // dispatch login action
     } catch (err) {
