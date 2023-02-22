@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { projectAuth, projectFirestore } from "../firebase/config";
 import { useAuthContext } from "./useAuthContext";
+import { useNavigate } from "react-router-dom";
 
 export const useLogout = () => {
   const [error, setError] = useState(null);
@@ -9,6 +10,7 @@ export const useLogout = () => {
   const navigate = useNavigate();
 
   const logout = async () => {
+    navigate("/login");
     setError(null);
     setIsPending(true);
 
