@@ -33,6 +33,11 @@ const Create = () => {
     e.preventDefault();
     setCheckError(null);
     console.log(name, details, date, category.value, assignedUsers);
+
+    if (!category || assignedUsers.length < 1) {
+      setCheckError("Please correct inputs");
+      return;
+    }
   };
   return (
     <div className="form">
