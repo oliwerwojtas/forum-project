@@ -3,7 +3,7 @@ import { useLogout } from "../hooks/useLogout";
 import Logo from "../assets/logo.svg";
 import { useAuthContext } from "../hooks/useAuthContext";
 import "./MainNavigation.css";
-
+import Avatar from "./Avatar";
 const MainNavigation = () => {
   const { logout, error, isPending } = useLogout();
   const { user } = useAuthContext();
@@ -18,7 +18,12 @@ const MainNavigation = () => {
 
         <li>
           {!user && <NavLink to="/login">Login </NavLink>}
-          {user && <NavLink to="/"></NavLink>}
+          {user && (
+            <div className="flex">
+              <Avatar src={user.photoURL} />
+              <p>Hey {user.displayName}</p>
+            </div>
+          )}
         </li>
         <li>
           {!user && <NavLink to="/signup">Signup</NavLink>}

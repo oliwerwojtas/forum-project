@@ -1,13 +1,13 @@
 import { NavLink } from "react-router-dom";
 import Icon from "../assets/dashboard.svg";
+import { useAuthContext } from "../hooks/useAuthContext";
+import Avatar from "./Avatar";
 
 const Sidebar = () => {
+  const { user } = useAuthContext();
   return (
     <div className=" bg-sky-500 h-[100vh]">
       <div className="">
-        <div>
-          <p>Hey user</p>
-        </div>
         <nav>
           <ul>
             <li>
