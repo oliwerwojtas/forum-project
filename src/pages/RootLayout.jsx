@@ -1,20 +1,23 @@
 import { Outlet } from "react-router-dom";
 import MainNavigation from "../components/MainNavigation";
 import Sidebar from "../components/Sidebar";
+import UsersOnline from "../components/UsersOnline";
 import { useAuthContext } from "../hooks/useAuthContext";
+import "./RootLayout.css";
 const RootLayout = () => {
   const { user } = useAuthContext();
 
   return (
     <>
-      <div className="flex">
-        <div className="basis-1/5">{user && <Sidebar />}</div>
-        <div className="basis-4/5">
+      <div className="container">
+        <div className="sidebar">{user && <Sidebar />}</div>
+        <div className="main">
           <MainNavigation />
           <main>
             <Outlet />
           </main>
         </div>
+        <div className="users"> {user && <UsersOnline />}</div>
       </div>
     </>
   );
