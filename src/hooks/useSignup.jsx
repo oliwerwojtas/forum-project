@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { projectAuth, projectStorage, projectFirestore } from "../firebase/config";
 import { useAuthContext } from "./useAuthContext";
 
@@ -6,6 +7,7 @@ export const useSignup = () => {
   const [error, setError] = useState(null);
   const [isPending, setIsPending] = useState(false);
   const { dispatch } = useAuthContext();
+  const navigate = useNavigate();
 
   const signup = async (email, password, displayName, image) => {
     setError(null);
@@ -35,6 +37,7 @@ export const useSignup = () => {
 
       dispatch({ type: "LOGIN", payload: createUser.user });
 
+      navigate("/");
       // dispatch login action
     } catch (err) {
       setError(err.message);

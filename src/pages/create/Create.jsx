@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import Select from "react-select";
 import "./Create.css";
 import { useCollection } from "../../hooks/useCollection";
+import { timestamp } from "../../firebase/config";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 const categories = [
   { value: "hobby", label: "Hobby" },
@@ -11,7 +13,7 @@ const categories = [
 ];
 const Create = () => {
   const { documents } = useCollection("users");
-  console.log(documents);
+  // console.log(documents);
   const [users, setUsers] = useState([]);
   const [name, setName] = useState("");
   const [details, setDetails] = useState("");
@@ -19,6 +21,7 @@ const Create = () => {
   const [category, setCategory] = useState("");
   const [assignedUsers, setAssignedUsers] = useState([]);
   const [checkError, setCheckError] = useState(null);
+  const { user } = useAuthContext();
 
   useEffect(() => {
     if (documents) {
@@ -27,7 +30,7 @@ const Create = () => {
       });
       setUsers(options);
     }
-  });
+  }, [documents]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,6 +41,28 @@ const Create = () => {
       setCheckError("Please correct inputs");
       return;
     }
+
+    const project = {
+      name: name,
+      details,
+      category: category.value,
+      date: timestamp.fromDate(new Date(date)),
+      comments: [],
+      createdBy: {
+        displayName: user.displayName,
+        photoURL: user.photoURL,
+        id: user.uid,
+      },
+      assignedUsersList: assignedUsers.map((u) => {
+        return {
+          displayName: u.value.displayName,
+          photoURL: u.value.photoURL,
+          id: u.value.id,
+        };
+      }),
+    };
+
+    console.log(project);
   };
   return (
     <div className="form">
