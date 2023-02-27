@@ -11,9 +11,9 @@ const Sidebar = () => {
         <nav>
           <ul>
             <li>
-              <NavLink to="/">
+              <NavLink to="/details">
                 <img src={Icon} alt="dashboard" className="w-6 h-6" />
-                <span>Dashboard</span>
+                <span>Details</span>
               </NavLink>
             </li>
             <li>
