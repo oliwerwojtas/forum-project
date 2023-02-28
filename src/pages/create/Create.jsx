@@ -17,7 +17,7 @@ const Create = () => {
   const navigate = useNavigate();
   const { addDocument, response } = useFirestore("projects");
   const { documents } = useCollection("users");
-  // console.log(documents);
+  console.log(documents);
   const [users, setUsers] = useState([]);
   const [name, setName] = useState("");
   const [details, setDetails] = useState("");

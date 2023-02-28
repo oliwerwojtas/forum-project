@@ -25,7 +25,7 @@ export const useCollection = (collection) => {
     );
 
     return () => unsubscribe();
-  });
+  }, [collection]);
 
   return { documents, error };
 };
