@@ -46,8 +46,16 @@ const Create = () => {
       return;
     }
 
+    const assignedUsersList = assignedUsers.map((u) => {
+      return {
+        displayName: u.value.displayName,
+        photoURL: u.value.photoURL,
+        id: u.value.id,
+      };
+    });
+
     const project = {
-      name: name,
+      name,
       details,
       category: category.value,
       date: timestamp.fromDate(new Date(date)),
@@ -57,13 +65,7 @@ const Create = () => {
         photoURL: user.photoURL,
         id: user.uid,
       },
-      assignedUsersList: assignedUsers.map((u) => {
-        return {
-          displayName: u.value.displayName,
-          photoURL: u.value.photoURL,
-          id: u.value.id,
-        };
-      }),
+      assignedUsersList,
     };
 
     await addDocument(project);

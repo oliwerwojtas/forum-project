@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Avatar from "./Avatar";
+
 const TopicList = ({ topics }) => {
   return (
     <div>
@@ -10,11 +11,11 @@ const TopicList = ({ topics }) => {
           <p>Date: {topic.date.toDate().toDateString()}</p>
           <div>
             <ul>
-              {topic.project.assignedUserList.map((user) => {
+              {topic.assignedUsersList.map((user) => (
                 <li key={user.photoURL}>
                   <Avatar src={user.photoURL} />
-                </li>;
-              })}
+                </li>
+              ))}
             </ul>
           </div>
         </Link>
