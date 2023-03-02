@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useDocument } from "../../hooks/useDocument";
-import DetailsSummary from "./DetailsSummary";
+import DetailsSummary from "./TopicsSummary";
 import Comments from "./Comments";
 const Details = () => {
   const { id } = useParams();
