@@ -16,7 +16,7 @@ const Details = () => {
   return (
     <div>
       <DetailsSummary topic={document} />
-      <Comments />
+      <Comments topic={document} />
     </div>
   );
 };
