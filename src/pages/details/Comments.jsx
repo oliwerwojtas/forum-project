@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Avatar from "../../components/Avatar";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useFirestore } from "../../hooks/useFirestore";
 const Comments = ({ topic }) => {
@@ -32,6 +33,13 @@ const Comments = ({ topic }) => {
   return (
     <div>
       <h4>Comments:</h4>
+      {/* {tu musi się to wywołać} */}
+      {topic.comments.map((comment) => (
+        <li key={comment.id}>
+          <p>{comment.displayName}</p>
+          <Avatar src={comment.photoURL} />
+        </li>
+      ))}
       <form onSubmit={handleSubmit}>
         <label>
           <span>Add new comment:</span>
