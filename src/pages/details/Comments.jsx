@@ -1,7 +1,9 @@
 import { useState } from "react";
+import Pagination from "./Pagination";
 import Avatar from "../../components/Avatar";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useFirestore } from "../../hooks/useFirestore";
+
 const Comments = ({ topic }) => {
   const [comment, setComment] = useState();
   const { user } = useAuthContext();
@@ -30,11 +32,24 @@ const Comments = ({ topic }) => {
       setComment("");
     }
   };
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(2);
+  const indexLastPost = currentPage * postsPerPage;
+  const indexFirstPost = indexLastPost - postsPerPage;
+  const currentComments = topic.comments.slice(indexFirstPost, indexLastPost);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <div>
       <h4>Comments:</h4>
-      {/* {tu musi się to wywołać} */}
-      {topic.comments.map((comment) => (
+      <Pagination
+        postsPerPage={postsPerPage}
+        totalPosts={topic.comments.length}
+        paginate={paginate}
+      />
+      {currentComments.map((comment) => (
         <li key={comment.id}>
           <p>{comment.displayName}</p>
           <Avatar src={comment.photoURL} />
