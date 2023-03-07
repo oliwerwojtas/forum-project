@@ -1,13 +1,32 @@
-import TopicList from "../../components/TopicsList";
+import { useState } from "react";
+import TopicList from "../../components/CategoriesList";
 import { useCollection } from "../../hooks/useCollection";
+import { categories } from "../create/Create";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const { documents, error } = useCollection("projects");
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+  };
   return (
     <div>
       <h2 className="page-title">Details</h2>
       {error && <p>{error}</p>}
-      {documents && <TopicList topics={documents} />}
+      {documents && (
+        <>
+          {categories.map((category) => (
+            <Link to="/" onClick={() => handleCategoryClick(category.value)} key={category.value}>
+              <h3>{category.label}</h3>
+            </Link>
+          ))}
+          {selectedCategory && (
+            <TopicList topics={documents.filter((doc) => doc.category === selectedCategory)} />
+          )}
+        </>
+      )}
     </div>
   );
 };

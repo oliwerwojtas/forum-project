@@ -7,7 +7,7 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 import { useFirestore } from "../../hooks/useFirestore";
 import { useNavigate } from "react-router-dom";
 
-const categories = [
+export const categories = [
   { value: "hobby", label: "Hobby" },
   { value: "fashion", label: "Fashion" },
   { value: "traveling", label: "Traveling" },
