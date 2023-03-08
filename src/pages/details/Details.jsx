@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useDocument } from "../../hooks/useDocument";
-import DetailsSummary from "./TopicsSummary";
+
 import Comments from "./Comments";
+import TopicDetails from "./TopicDetails";
 const Details = () => {
   const { id } = useParams();
   const { error, document } = useDocument("projects", id);
@@ -15,7 +16,7 @@ const Details = () => {
   }
   return (
     <div>
-      <DetailsSummary topic={document} />
+      <TopicDetails topic={document} />
       <Comments topic={document} />
     </div>
   );

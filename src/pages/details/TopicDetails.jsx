@@ -1,21 +1,28 @@
 import Avatar from "../../components/Avatar";
-import { useAuthContext } from "../../hooks/useAuthContext";
 import { useFirestore } from "../../hooks/useFirestore";
-const DetailsSummary = ({ topic }) => {
+const TopicDetails = ({ topic }) => {
   const { deleteDocument } = useFirestore("projects");
 
-  const { user } = useAuthContext();
-  const handleClick = (e) => {
+  const handleClick = () => {
     const confirmed = window.confirm("Are you sure you want to delete this project?");
     if (confirmed) {
       deleteDocument(topic.id);
     }
   };
+  const topicDetails = [
+    { title: "Name", content: topic.name },
+    { title: "Date", content: topic.date.toDate().toLocaleDateString() },
+    { title: "Details", content: topic.details },
+  ];
+
   return (
     <div>
-      <h1 className="text-2xl font-bold">{topic.name}</h1>
-      <time dateTime={topic.date.toDate()}>{topic.date.toDate().toLocaleDateString()}</time>
-      <p>{topic.details}</p>
+      {topicDetails.map((detail) => (
+        <div key={detail.title}>
+          <h1 className="text-2xl font-bold">{detail.title}</h1>
+          <p>{detail.content}</p>
+        </div>
+      ))}
       <h2 className="font-bold">Assigned Users:</h2>
       {topic.assignedUsersList.map((user) => (
         <div key={user.id}>
@@ -27,4 +34,4 @@ const DetailsSummary = ({ topic }) => {
   );
 };
 
-export default DetailsSummary;
+export default TopicDetails;
