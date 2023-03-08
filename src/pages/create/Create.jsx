@@ -6,6 +6,7 @@ import { timestamp } from "../../firebase/config";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useFirestore } from "../../hooks/useFirestore";
 import { useNavigate } from "react-router-dom";
+import FormInput from "../../components/FormInput";
 
 export const categories = [
   { value: "hobby", label: "Hobby" },
@@ -33,6 +34,7 @@ const Create = () => {
         return { value: user, label: user.displayName };
       });
       setUsers(options);
+      console.log(documents);
     }
   }, [documents]);
 
@@ -77,41 +79,33 @@ const Create = () => {
     <div className="form">
       <h2 className="title">Create a new subject</h2>
       <form onSubmit={handleSubmit}>
-        <label>
-          <span>Subject name:</span>
-          <input
-            required
-            type="text"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
-          ></input>
-        </label>
-        <label>
-          <span>Details:</span>
-          <textarea
-            required
-            type="text"
-            onChange={(e) => setDetails(e.target.value)}
-            value={details}
-          ></textarea>
-        </label>
-        <label>
-          <span>Date:</span>
-          <input
-            required
-            type="date"
-            onChange={(e) => setDate(e.target.value)}
-            value={date}
-          ></input>
-        </label>
-        <label>
-          <span>Category:</span>
+        <FormInput
+          label="Subject name:"
+          required
+          type="text"
+          onChange={(e) => setName(e.target.value)}
+          value={name}
+        />
+        <FormInput
+          label="Details:"
+          required
+          type="text"
+          onChange={(e) => setDetails(e.target.value)}
+          value={details}
+        />
+        <FormInput
+          label="Date:"
+          required
+          type="date"
+          onChange={(e) => setDate(e.target.value)}
+          value={date}
+        />
+        <FormInput label="Category:">
           <Select onChange={(option) => setCategory(option)} options={categories} />
-        </label>
-        <label>
-          <span>Assign to:</span>
+        </FormInput>
+        <FormInput label="Assign to:">
           <Select onChange={(option) => setAssignedUsers(option)} options={users} isMulti />
-        </label>
+        </FormInput>
         <button className="btn">Add Subject</button>
 
         {checkError && <p className="error">{checkError}</p>}

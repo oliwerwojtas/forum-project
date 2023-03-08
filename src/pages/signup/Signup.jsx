@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSignup } from "../../hooks/useSignup";
-
+import FormInput from "../../components/FormInput";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -44,46 +44,29 @@ const Signup = () => {
     <div className="flex max-h-[45rem] w-auto justify-center items-center mt-4">
       <form className="flex-col w-96 bg-amber-300 p-6 rounded-md" onSubmit={handleSubmit}>
         <h2 className="text-center ">Sing up</h2>
-        <label className="block my-6 mx-auto">
-          <span className="block mb-6">email:</span>
-          <input
-            className="w-full py-3 px-2 text-base"
-            required
-            type="email"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-          />
-        </label>
-        <label className="bg-emerald-100 block my-6 mx-auto">
-          <span className="block mb-6">password</span>
-          <input
-            className="w-full py-3 px-2 text-base"
-            required
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-          />
-        </label>
-        <label className="bg-emerald-700 block my-6 mx-auto text">
-          <span className="block mb-6">name</span>
-          <input
-            className="w-full py-3 px-2 text-base"
-            required
-            type="text"
-            onChange={(e) => setDisplayName(e.target.value)}
-            value={displayName}
-          />
-        </label>
-        <label className="bg-emerald-400 block my-6 mx-auto">
-          <span className="block mb-6">image: </span>
-          <input
-            className="w-full py-3 px-2 text-base"
-            required
-            type="file"
-            onChange={handleFileChange}
-          />
-          {imageError && <div>{imageError}</div>}
-        </label>
+        <FormInput
+          label="email:"
+          type="email"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+          required
+        />
+        <FormInput
+          label="password:"
+          type="password"
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+          required
+        />
+        <FormInput
+          label="name"
+          type="text"
+          onChange={(e) => setDisplayName(e.target.value)}
+          value={displayName}
+          required
+        />
+        <FormInput label="image:" type="file" onChange={handleFileChange} required />
+        {imageError && <div>{imageError}</div>}
         <button>Sign up</button>
       </form>
     </div>
