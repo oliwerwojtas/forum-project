@@ -1,7 +1,6 @@
 import { createBrowserRouter, RouterProvider, redirect } from "react-router-dom";
 import { useAuthContext } from "./hooks/useAuthContext";
-import "../dist/output.css";
-import "./App.css";
+
 import HomePage from "./pages/homepage/HomePage";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";

@@ -6,11 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "watch": "postcss ./src/index.css -o ./src/output.css --watch"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.2",
     "firebase": "8.5",
+    "postcss-cli": "^10.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
@@ -25,7 +27,7 @@
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",
     "sass": "^1.58.0",
-    "tailwindcss": "^3.2.6",
+    "tailwindcss": "^3.2.7",
     "vite": "^4.1.0"
   }
 }

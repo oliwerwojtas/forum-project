@@ -13,7 +13,7 @@ const HomePage = () => {
   };
   return (
     <div>
-      <h2 className="page-title">Details</h2>
+      <h2 className="text-sky-400/75">Details</h2>
       {error && <p>{error}</p>}
       {documents && (
         <>
