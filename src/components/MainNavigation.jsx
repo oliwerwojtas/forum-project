@@ -13,7 +13,7 @@ const MainNavigation = () => {
       <ul className="flex justify-end items-center">
         <li className="flex items-center logo">
           <img className="img" src={Logo} alt="project logo" />
-          <span>Managment Project</span>
+          <span>ForumApp</span>
         </li>
 
         <li>

@@ -16,25 +16,35 @@ const Login = () => {
   };
 
   return (
-    <div className="flex max-h-[45rem] w-auto justify-center items-center mt-4">
-      <form className="flex-col w-96 bg-amber-300 p-6 rounded-md" onSubmit={handleSubmit}>
-        <h2 className="text-center ">Log in</h2>
-        <FormInput
-          label="email:"
-          type="email"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-          required
-        />
-        <FormInput
-          label="password:"
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-          required
-        />
-
-        <button>Log in</button>
+    <div className="flex justify-center items-center mt-14">
+      <form className="bg-white w-80 shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
+        <h2 className="text-center font-bold text-xl mb-6">Login</h2>
+        <div className="mb-4">
+          <FormInput
+            label="Email:"
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            required
+          />
+        </div>
+        <div className="mb-6">
+          <FormInput
+            label="Password:"
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            required
+          />
+        </div>
+        <div className="flex items-center justify-between">
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            type="submit"
+          >
+            Login
+          </button>
+        </div>
       </form>
     </div>
   );
