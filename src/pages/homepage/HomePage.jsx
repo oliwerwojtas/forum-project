@@ -13,19 +13,25 @@ const HomePage = () => {
   };
   return (
     <div>
-      <h2 className="text-sky-400/75">Details</h2>
       {error && <p>{error}</p>}
       {documents && (
-        <>
+        <div className="flex flex-wrap mt-12">
           {categories.map((category) => (
-            <Link to="/" onClick={() => handleCategoryClick(category.value)} key={category.value}>
-              <h3>{category.label}</h3>
-            </Link>
+            <div className="flex w-2/4 justify-center items-center ">
+              <Link
+                className="my-8"
+                to="/"
+                onClick={() => handleCategoryClick(category.value)}
+                key={category.value}
+              >
+                <h3>{category.label}</h3>
+              </Link>
+            </div>
           ))}
           {selectedCategory && (
             <TopicList topics={documents.filter((doc) => doc.category === selectedCategory)} />
           )}
-        </>
+        </div>
       )}
     </div>
   );
