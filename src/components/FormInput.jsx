@@ -1,4 +1,3 @@
-import Select from "react-select";
 const FormInput = ({ label, type, onChange, value, required, children }) => {
   return (
     <label>

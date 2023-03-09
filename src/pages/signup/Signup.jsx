@@ -59,7 +59,7 @@ const Signup = () => {
           required
         />
         <FormInput
-          label="Name"
+          label="Name:"
           type="text"
           onChange={(e) => setDisplayName(e.target.value)}
           value={displayName}
