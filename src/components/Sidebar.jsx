@@ -3,23 +3,23 @@ import Icon from "../assets/dashboard.svg";
 
 const Sidebar = () => {
   return (
-    <div className="">
-      <nav>
-        <ul className="flex justify-around">
-          <li>
-            <NavLink to="/">
-              <img src={Icon} alt="dashboard" className="w-6 h-6" />
+    <div className="px-6 mt-2">
+      <ul className="flex justify-start">
+        <li className="mr-2">
+          <NavLink exact to="/">
+            <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
               <span>Details</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/create">
-              <img src={Icon} alt="add" className="w-6 h-6" />
+            </div>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/create">
+            <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
               <span>New text</span>
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
+            </div>
+          </NavLink>
+        </li>
+      </ul>
     </div>
   );
 };

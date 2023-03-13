@@ -15,21 +15,20 @@ const HomePage = () => {
     <div>
       {error && <p>{error}</p>}
       {documents && (
-        <div className="flex flex-wrap mt-12">
-          {categories.map((category) => (
-            <div className="flex w-2/4 justify-center items-center ">
-              <Link
-                className="my-8"
-                to="/"
-                onClick={() => handleCategoryClick(category.value)}
+        <div className="flex justify-center items-center flex-wrap mt-12">
+          {selectedCategory ? (
+            <TopicList topics={documents.filter((doc) => doc.category === selectedCategory)} />
+          ) : (
+            categories.map((category) => (
+              <div
+                className="flex w-5/12 justify-center items-center bg-slate-600 m-2"
                 key={category.value}
               >
-                <h3>{category.label}</h3>
-              </Link>
-            </div>
-          ))}
-          {selectedCategory && (
-            <TopicList topics={documents.filter((doc) => doc.category === selectedCategory)} />
+                <Link className="my-8" to="/" onClick={() => handleCategoryClick(category.value)}>
+                  <h3>{category.label}</h3>
+                </Link>
+              </div>
+            ))
           )}
         </div>
       )}
