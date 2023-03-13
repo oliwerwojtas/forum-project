@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
 import Logo from "../assets/logo.svg";
 import { useAuthContext } from "../hooks/useAuthContext";
-import "./MainNavigation.css";
+
 import Avatar from "./Avatar";
 
 const MainNavigation = () => {
@@ -10,45 +10,44 @@ const MainNavigation = () => {
   const { user } = useAuthContext();
 
   return (
-    <nav className="w-full py-8 px-0 box-border navbar bg-white text-lg">
+    <nav className="w-full py-6 px-0 box-border navbar bg-white text-lg">
       <ul className="flex justify-end items-center px-4">
-        <li className="flex items-center logo">
-          <img className="img" src={Logo} alt="project logo" />
+        <li className="flex items-center mr-auto font-bold">
+          <img className="w-9" src={Logo} alt="project logo" />
           <span>ForumApp</span>
         </li>
 
         <li>
-          {!user && (
-            <NavLink
-              to="/login"
-              className={({ isActive }) =>
-                isActive ? "font-bold border-b-2 border-blue-500" : undefined
-              }
-            >
-              Login
-            </NavLink>
-          )}
-          {user && (
-            <div className="flex">
+          {!user ? (
+            <>
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  isActive ? "font-bold border-b-2 border-blue-500 mr-2" : undefined
+                }
+              >
+                Login
+              </NavLink>
+              <NavLink
+                to="/signup"
+                className={({ isActive }) =>
+                  isActive ? "font-bold border-b-2 border-blue-500 ml-2" : undefined
+                }
+              >
+                Signup
+              </NavLink>
+            </>
+          ) : (
+            <div className="flex ">
               <Avatar src={user.photoURL} />
-              <p>Hey {user.displayName}</p>
+              <div className="text-base">
+                <p>Hey,</p>
+                <p>{user.displayName}</p>
+              </div>
             </div>
           )}
         </li>
-        <li>
-          {!user && (
-            <NavLink
-              to="/signup"
-              className={({ isActive }) =>
-                isActive ? "font-bold border-b-2 border-blue-500" : undefined
-              }
-            >
-              Signup
-            </NavLink>
-          )}
-          {user && <NavLink to="/"></NavLink>}
-        </li>
-        <li>{user && <button onClick={logout}>Loging out...</button>}</li>
+        <li className="text-base">{user && <button onClick={logout}>Log out</button>}</li>
       </ul>
     </nav>
   );
