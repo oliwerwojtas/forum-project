@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Select from "react-select";
-import "./Create.css";
 import { useCollection } from "../../hooks/useCollection";
 import { timestamp } from "../../firebase/config";
 import { useAuthContext } from "../../hooks/useAuthContext";
@@ -76,40 +75,56 @@ const Create = () => {
     }
   };
   return (
-    <div className="form">
-      <h2 className="title">Create a new subject</h2>
-      <form onSubmit={handleSubmit}>
-        <FormInput
-          label="Subject name:"
-          required
-          type="text"
-          onChange={(e) => setName(e.target.value)}
-          value={name}
-        />
-        <FormInput
-          label="Details:"
-          required
-          type="text"
-          onChange={(e) => setDetails(e.target.value)}
-          value={details}
-        />
-        <FormInput
-          label="Date:"
-          required
-          type="date"
-          onChange={(e) => setDate(e.target.value)}
-          value={date}
-        />
-        <FormInput label="Category:">
-          <Select onChange={(option) => setCategory(option)} options={categories} />
-        </FormInput>
-        <FormInput label="Assign to:">
-          <Select onChange={(option) => setAssignedUsers(option)} options={users} isMulti />
-        </FormInput>
-        <button className="btn">Add Subject</button>
-
-        {checkError && <p className="error">{checkError}</p>}
-      </form>
+    <div className="flex flex-col justify-center items-center">
+      <div className="bg-white w-80 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <h2 className="title text-center font-bold text-xl mb-6">Create a new subject</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <FormInput
+              label="Subject name:"
+              required
+              type="text"
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+            />
+          </div>
+          <div className="mb-4">
+            <FormInput
+              label="Details:"
+              required
+              type="text"
+              onChange={(e) => setDetails(e.target.value)}
+              value={details}
+            />
+          </div>
+          <div className="mb-4">
+            <FormInput
+              label="Date:"
+              required
+              type="date"
+              onChange={(e) => setDate(e.target.value)}
+              value={date}
+            />
+          </div>
+          <div className="mb-4">
+            <Select onChange={(option) => setCategory(option)} options={categories} required />
+          </div>
+          <div className="mb-4">
+            <Select
+              onChange={(option) => setAssignedUsers(option)}
+              options={users}
+              isMulti
+              required
+            />
+          </div>
+          <div className="flex items-center justify-between">
+            <button className="btn" type="submit">
+              Add Subject
+            </button>
+          </div>
+          {checkError && <p className="error">{checkError}</p>}
+        </form>
+      </div>
     </div>
   );
 };
