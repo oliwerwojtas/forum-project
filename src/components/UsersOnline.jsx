@@ -16,7 +16,7 @@ const UsersOnline = () => {
             <div className="flex items-center justify-center ">
               <Avatar className="w-12 h-12" src={user.photoURL} />
             </div>
-            <span className="text-center">{user.displayName}</span>
+            <span className="text-center text-sm">{user.displayName}</span>
           </div>
         ))}
     </div>
