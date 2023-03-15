@@ -40,10 +40,10 @@ const MainNavigation = () => {
           ) : (
             <div className="flex ">
               <Avatar src={user.photoURL} />
-              <div className="text-base">
+              {/* <div className="text-base">
                 <p>Hey,</p>
                 <p>{user.displayName}</p>
-              </div>
+              </div> */}
             </div>
           )}
         </li>
