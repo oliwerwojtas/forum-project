@@ -5,6 +5,7 @@ import HomePage from "./pages/homepage/HomePage";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
 import Create from "./pages/create/Create";
+import CategoriesList from "../src/components/CategoriesList";
 import Details from "./pages/details/Details";
 import RootLayout from "./pages/RootLayout";
 import ErrorPage from "./pages/ErrorPage";

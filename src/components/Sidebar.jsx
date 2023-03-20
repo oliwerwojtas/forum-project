@@ -6,9 +6,9 @@ const Sidebar = () => {
     <div className="px-6 mt-2">
       <ul className="flex justify-start">
         <li className="mr-2">
-          <NavLink exact to="/">
+          <NavLink to="/">
             <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
-              <span>Details</span>
+              <span>Home</span>
             </div>
           </NavLink>
         </li>

@@ -54,6 +54,11 @@ const Create = () => {
         id: u.value.id,
       };
     });
+    const createdBy = {
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+      id: user.uid,
+    };
 
     const project = {
       name,
@@ -61,17 +66,13 @@ const Create = () => {
       category: category.value,
       date: timestamp.fromDate(new Date(date)),
       comments: [],
-      createdBy: {
-        displayName: user.displayName,
-        photoURL: user.photoURL,
-        id: user.uid,
-      },
+      createdBy,
       assignedUsersList,
     };
 
     await addDocument(project);
     if (!response.error) {
-      navigate("/");
+      navigate("/categories");
     }
   };
   return (

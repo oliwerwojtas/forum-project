@@ -5,12 +5,12 @@ import "firebase/auth";
 import "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCRbeqa5Yp3NoWrdFZ2plOsSrrOpuCeseQ",
-  authDomain: "managment-app-5c446.firebaseapp.com",
-  projectId: "managment-app-5c446",
-  storageBucket: "managment-app-5c446.appspot.com",
-  messagingSenderId: "198722011929",
-  appId: "1:198722011929:web:c03c3462c73835d846bb88",
+  apiKey: "AIzaSyCrpJBexgSHk688AXufj5fyI1bknkOXMOE",
+  authDomain: "forum-project-226e0.firebaseapp.com",
+  projectId: "forum-project-226e0",
+  storageBucket: "forum-project-226e0.appspot.com",
+  messagingSenderId: "938311689499",
+  appId: "1:938311689499:web:84066e73d7716806e3dfbe",
 };
 
 firebase.initializeApp(firebaseConfig);

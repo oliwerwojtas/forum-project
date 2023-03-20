@@ -53,7 +53,8 @@ const Comments = ({ topic }) => {
         {currentComments.map((comment) => (
           <div key={comment.id} className="flex flex-row items-center mb-2">
             <Avatar src={comment.photoURL} className="mr-2" />
-            <p>{comment.displayName}</p>
+            {/* <p>{comment.displayName}</p> */}
+            <p>{comment.content}</p>
           </div>
         ))}
         <form onSubmit={handleSubmit}>
