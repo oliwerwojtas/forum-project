@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import Icon from "../assets/dashboard.svg";
 
 const Sidebar = () => {
   return (
@@ -15,7 +14,7 @@ const Sidebar = () => {
         <li>
           <NavLink to="/create">
             <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
-              <span>New text</span>
+              <span>Create</span>
             </div>
           </NavLink>
         </li>

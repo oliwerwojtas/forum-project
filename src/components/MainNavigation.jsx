@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
 import Logo from "../assets/logo.svg";
 import { useAuthContext } from "../hooks/useAuthContext";
-
+import { ThemeMode } from "../utilities/ThemeMode";
 import Avatar from "./Avatar";
 
 const MainNavigation = () => {
@@ -46,6 +46,9 @@ const MainNavigation = () => {
               </div> */}
             </div>
           )}
+        </li>
+        <li>
+          <ThemeMode />
         </li>
         <li className="text-base">{user && <button onClick={logout}>Log out</button>}</li>
       </ul>

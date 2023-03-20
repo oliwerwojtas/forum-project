@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
-import Avatar from "./Avatar";
+import Avatar from "../../components/Avatar";
 
 const TopicList = ({ topics }) => {
   return (
     <div className="flex flex-col justify-center items-center">
       <div className="bg-white w-80 shadow-md rounded px-8 pt-6 pb-8 mb-4">
-        <Link className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <Link
+          to="/"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
           Powrót do wyboru kategorii
         </Link>
 

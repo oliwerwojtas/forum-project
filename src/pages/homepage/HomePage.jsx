@@ -1,23 +1,26 @@
 import { useState } from "react";
-import TopicList from "../../components/CategoriesList";
+import TopicList from "../list/TopicList";
 import { useCollection } from "../../hooks/useCollection";
 import { categories } from "../create/Create";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const HomePage = () => {
   const { documents, error } = useCollection("projects");
   const [selectedCategory, setSelectedCategory] = useState("");
-
+  // const navigate = useNavigate();
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
   };
+
   return (
     <div>
       {error && <p>{error}</p>}
       {documents && (
         <div className="flex justify-center items-center flex-wrap mt-12">
           {selectedCategory ? (
-            <TopicList topics={documents.filter((doc) => doc.category === selectedCategory)} />
+            <div>
+              <TopicList topics={documents.filter((doc) => doc.category === selectedCategory)} />
+            </div>
           ) : (
             categories.map((category) => (
               <div
