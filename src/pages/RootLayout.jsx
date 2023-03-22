@@ -12,10 +12,13 @@ const RootLayout = () => {
       <div>
         <div>
           <MainNavigation />
-          {user && <UsersOnline />}
-          {user && <Sidebar />}
           <div>
-            <Outlet />
+            <div>{user && <UsersOnline />}</div>
+            <div>
+              {user && <Sidebar />}
+
+              <Outlet />
+            </div>
           </div>
         </div>
       </div>

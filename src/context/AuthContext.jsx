@@ -11,8 +11,6 @@ export const authReducer = (state, action) => {
       return { ...state, user: null };
     case "AUTH_IS_READY":
       return { user: action.payload, authIsReady: true };
-    case "CHANGE_MODE":
-      return { ...state, mode: action.payload };
     default:
       return state;
   }
@@ -22,12 +20,7 @@ export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, {
     user: null,
     authIsReady: false,
-    mode: "dark",
   });
-
-  const changeMode = (mode) => {
-    dispatch({ type: "CHANGE_MODE", payload: mode });
-  };
 
   useEffect(() => {
     const unsub = projectAuth.onAuthStateChanged((user) => {
@@ -38,9 +31,5 @@ export const AuthContextProvider = ({ children }) => {
 
   console.log("AuthContext state:", state);
 
-  return (
-    <AuthContext.Provider value={{ ...state, dispatch, changeMode }}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={{ ...state, dispatch }}>{children}</AuthContext.Provider>;
 };

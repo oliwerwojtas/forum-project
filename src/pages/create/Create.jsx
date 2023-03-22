@@ -72,7 +72,7 @@ const Create = () => {
 
     await addDocument(project);
     if (!response.error) {
-      navigate("/categories");
+      navigate("/");
     }
   };
   return (
@@ -118,14 +118,7 @@ const Create = () => {
               required
             />
           </div>
-          <div className="flex items-center justify-between">
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-              type="submit"
-            >
-              Add Subject
-            </button>
-          </div>
+          <div className="flex items-center justify-between"></div>
           {checkError && <p className="error">{checkError}</p>}
         </form>
       </div>

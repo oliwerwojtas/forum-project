@@ -1,16 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  darkMode: "class",
   theme: {
-    extend: {
-      delay: {
-        borderBottomWidth: "2px",
-        borderBottomStyle: "solid",
-        transitionProperty: "border-bottom",
-        transitionDuration: "0.3s",
-        transitionDelay: "0.1s",
-      },
+    screens: {
+      sm: "32rem",
+
+      md: "39rem",
+      lg: "52rem",
+      xl: "64rem",
     },
+    extend: {},
   },
   plugins: [],
 };

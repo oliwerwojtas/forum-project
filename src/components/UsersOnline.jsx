@@ -5,18 +5,32 @@ import "@splidejs/react-splide/css";
 const UsersOnline = () => {
   const { error, documents } = useCollection("users");
   return (
-    <div className="flex p-2">
-      <div className="w-full flex items-center">
+    <div className=" flex p-2">
+      <div className="w-min flex items-center">
         <h2>All users</h2>
       </div>
       {error && <div>{error}</div>}
       <Splide
+        className="w-full"
         options={{
-          perPage: 4,
-          arrows: true,
+          arrows: false,
           pagination: false,
           drag: "free",
           gap: "1rem",
+          mediaQuery: "min",
+          breakpoints: {
+            320: {
+              perPage: 4,
+              gap: "0rem",
+            },
+            640: {
+              perPage: 8,
+            },
+            1024: {
+              perPage: 24,
+              arrows: false,
+            },
+          },
         }}
       >
         {documents &&
