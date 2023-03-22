@@ -4,6 +4,7 @@ import Logo from "../assets/logo.svg";
 import { useAuthContext } from "../hooks/useAuthContext";
 import Avatar from "./Avatar";
 import { ThemeSwitcher } from "../utilities/ThemeSwitcher";
+import Button from "../utilities/Button";
 const MainNavigation = () => {
   const { logout, error, isPending } = useLogout();
   const { user } = useAuthContext();
@@ -39,17 +40,13 @@ const MainNavigation = () => {
           ) : (
             <div className="flex ">
               <Avatar src={user.photoURL} />
-              {/* <div className="text-base">
-                <p>Hey,</p>
-                <p>{user.displayName}</p>
-              </div> */}
             </div>
           )}
         </li>
         <li>
           <ThemeSwitcher />
         </li>
-        <li className="text-base">{user && <button onClick={logout}>Log out</button>}</li>
+        <li className="text-base">{user && <Button text="Logout" onClick={logout} />}</li>
       </ul>
     </nav>
   );

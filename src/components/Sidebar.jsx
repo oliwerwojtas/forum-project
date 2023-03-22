@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import Modal from "../utilities/Modal";
 import ReactModal from "react-modal";
+import Button from "../utilities/Button";
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -17,18 +18,12 @@ const Sidebar = () => {
       <ul className="flex justify-start">
         <li className="mr-2">
           <NavLink to="/">
-            <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
-              <span>Home</span>
-            </div>
+            <Button text="Home" />
           </NavLink>
         </li>
         <li>
-          <button
-            onClick={handleClick}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"
-          >
-            Open modal
-          </button>
+          <Button text="Create" onClick={handleClick} />
+
           <Modal isOpen={isOpen} handleClose={handleClose} />
         </li>
       </ul>

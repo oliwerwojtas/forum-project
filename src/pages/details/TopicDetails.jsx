@@ -1,6 +1,7 @@
 import Avatar from "../../components/Avatar";
 import { useFirestore } from "../../hooks/useFirestore";
 import { Link } from "react-router-dom";
+import Button from "../../utilities/Button";
 const TopicDetails = ({ topic }) => {
   const { deleteDocument } = useFirestore("projects");
 
@@ -20,11 +21,8 @@ const TopicDetails = ({ topic }) => {
     <div className="flex flex-col justify-center items-center">
       <div className="bg-white w-80 shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <h2 className="title text-center font-bold text-xl mb-6">Topic Details</h2>
-        <Link
-          to="/"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        >
-          Powrót do wyboru kategorii
+        <Link to="/">
+          <Button text="Back" />
         </Link>
         {topicDetails.map((detail) => (
           <div key={detail.title}>
@@ -41,12 +39,13 @@ const TopicDetails = ({ topic }) => {
             </div>
           ))}
         </div>
-        <button
+        <Button
+          text="Delete"
           onClick={handleClick}
           className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4"
         >
           DELETE
-        </button>
+        </Button>
       </div>
     </div>
   );

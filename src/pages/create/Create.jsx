@@ -6,7 +6,7 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 import { useFirestore } from "../../hooks/useFirestore";
 import { useNavigate } from "react-router-dom";
 import FormInput from "../../components/FormInput";
-
+import Button from "../../utilities/Button";
 export const categories = [
   { value: "hobby", label: "Hobby" },
   { value: "fashion", label: "Fashion" },
@@ -75,6 +75,10 @@ const Create = () => {
       navigate("/");
     }
   };
+  const handleClose = () => {
+    navigate("/");
+  };
+
   return (
     <div className="flex flex-col justify-center items-center">
       <div className="bg-white w-80 shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -118,7 +122,9 @@ const Create = () => {
               required
             />
           </div>
-          <div className="flex items-center justify-between"></div>
+          <div className="flex items-center justify-center">
+            <Button text="Add subject" />
+          </div>
           {checkError && <p className="error">{checkError}</p>}
         </form>
       </div>

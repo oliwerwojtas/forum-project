@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useSignup } from "../../hooks/useSignup";
 import FormInput from "../../components/FormInput";
+import Button from "../../utilities/Button";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -67,9 +68,7 @@ const Signup = () => {
         />
         <FormInput label="Image:" type="file" onChange={handleFileChange} required />
         {imageError && <div>{imageError}</div>}
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2">
-          Sign up
-        </button>
+        <Button text="Sign up" className="mt-4" />
       </form>
     </div>
   );

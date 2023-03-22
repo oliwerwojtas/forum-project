@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useLogin } from "../../hooks/useLogin";
 import { useNavigate } from "react-router-dom";
 import FormInput from "../../components/FormInput";
+import Button from "../../utilities/Button";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -38,12 +39,7 @@ const Login = () => {
           />
         </div>
         <div className="flex items-center justify-between">
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            type="submit"
-          >
-            Login
-          </button>
+          <Button text="Login" />
         </div>
       </form>
     </div>

@@ -1,7 +1,7 @@
 import ReactModal from "react-modal";
 import Create from "../pages/create/Create";
 import { useState } from "react";
-
+import Button from "./Button";
 const Modal = ({ isOpen, handleClose }) => {
   return (
     <ReactModal
@@ -30,7 +30,11 @@ const Modal = ({ isOpen, handleClose }) => {
       }}
     >
       <Create />
-      <button onClick={handleClose}>Zamknij</button>
+      <Button
+        text="Close"
+        onClick={handleClose}
+        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded "
+      />
     </ReactModal>
   );
 };

@@ -3,7 +3,7 @@ import Pagination from "./Pagination";
 import Avatar from "../../components/Avatar";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useFirestore } from "../../hooks/useFirestore";
-
+import Button from "../../utilities/Button";
 const Comments = ({ topic }) => {
   const [comment, setComment] = useState();
   const { user } = useAuthContext();
@@ -68,9 +68,7 @@ const Comments = ({ topic }) => {
               className="block w-full border-gray-400 border rounded py-2 px-3 mt-1"
             ></textarea>
           </label>
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Add Comment
-          </button>
+          <Button text="Add comment" />
         </form>
       </div>
     </div>
