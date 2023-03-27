@@ -3,6 +3,7 @@ import { useState } from "react";
 import Modal from "../utilities/Modal";
 import ReactModal from "react-modal";
 import Button from "../utilities/Button";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +29,6 @@ const Sidebar = () => {
 
             <Modal isOpen={isOpen} handleClose={handleClose} />
           </li>
-          <li></li>
         </ul>
       </div>
     </div>
