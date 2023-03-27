@@ -4,13 +4,13 @@ import Avatar from "./Avatar";
 const TopicList = ({ topics }) => {
   return (
     <div className="flex justify-center items-center">
-      <div className="bg-white lg:w-11/12 sm:w-80 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <div className="bg-white lg:w-11/12 min-h-full sm:w-80  shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <h2 className="title text-center font-bold text-xl mb-6">Lets talk about...</h2>
 
         {topics.length === 0 && <p>No topics!</p>}
         <div className="lg:flex gap-2 flex-wrap jus">
           {topics.map((topic) => (
-            <div className="border-2 mb-2 lg:w-1/5">
+            <div className="border-2 mb-2 lg:w-1/5 h-36">
               <Link to={`/details/${topic.id}`} key={topic.id}>
                 <div className="flex flex-row items-center mb-2 justify-between">
                   <div>

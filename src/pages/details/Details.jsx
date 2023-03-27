@@ -15,7 +15,7 @@ const Details = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div>
+    <div className="lg:flex justify-center items-center">
       <TopicDetails topic={document} />
       <Comments topic={document} />
     </div>
