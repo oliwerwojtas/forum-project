@@ -10,7 +10,7 @@ const TopicList = ({ topics }) => {
         <h2 className="title text-center font-bold text-xl mb-6">Lets talk about...</h2>
 
         {topics.length === 0 && <p>No topics!</p>}
-        <div className="lg:flex gap-2 flex-wrap jus">
+        <div className="lg:flex gap-2 flex-wrap">
           <Sorting topics={topics} />
         </div>
       </div>

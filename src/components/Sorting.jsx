@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Avatar } from "@material-tailwind/react";
+import Avatar from "../components/Avatar";
 import Button from "../utilities/Button";
 const Sorting = ({ topics }) => {
   const [sortingOrder, setSortingOrder] = useState("asc");
@@ -20,9 +20,6 @@ const Sorting = ({ topics }) => {
   });
   return (
     <>
-      <Button text="Sort" onClick={handleSorting}>
-        Sort by Date
-      </Button>
       {sortedTopics.map((topic) => (
         <div className="border-2 mb-2 lg:w-1/5 h-36" key={topic.id}>
           <Link to={`/details/${topic.id}`}>
