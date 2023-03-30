@@ -8,6 +8,7 @@ import Wrapper from "../../utilities/Wrapper";
 
 const Comments = ({ topic }) => {
   const [comment, setComment] = useState();
+  const [numComments, setNumComments] = useState(topic.comments.length);
   const { user } = useAuthContext();
   const { updateDocument, response } = useFirestore("projects");
 
@@ -25,11 +26,11 @@ const Comments = ({ topic }) => {
       content: comment,
       id: Math.random(),
     };
-    console.log(topic.comments);
+
     await updateDocument(topic.id, {
       comments: [...topic.comments, newComment],
     });
-
+    setNumComments(numComments + 1);
     if (!response.error) {
       setComment("");
     }
@@ -70,6 +71,7 @@ const Comments = ({ topic }) => {
           ></textarea>
         </label>
         <Button text="Add comment" />
+        {numComments}
       </form>
     </Wrapper>
   );

@@ -1,11 +1,10 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import Modal from "../utilities/Modal";
-import ReactModal from "react-modal";
-import Button from "../utilities/Button";
-import { Link } from "react-router-dom";
 
-const Sidebar = () => {
+import Button from "../utilities/Button";
+
+const Sidebar = ({ handleSort }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
@@ -15,6 +14,7 @@ const Sidebar = () => {
   const handleClose = () => {
     setIsOpen(false);
   };
+
   return (
     <div className="flex justify-center items-center mb-4">
       <div className="lg:w-11/12 mt-2">
@@ -28,6 +28,10 @@ const Sidebar = () => {
             <Button text="Create" onClick={handleClick} />
 
             <Modal isOpen={isOpen} handleClose={handleClose} />
+          </li>
+
+          <li className="ml-2">
+            <Button text="Sort" onClick={handleSort} />
           </li>
         </ul>
       </div>

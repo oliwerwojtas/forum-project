@@ -1,9 +1,6 @@
-import { Link } from "react-router-dom";
-import Avatar from "./Avatar";
-import { useState } from "react";
-
 import Sorting from "../components/Sorting";
-const TopicList = ({ topics }) => {
+import { useState } from "react";
+const TopicList = ({ topics, sortingOrder }) => {
   return (
     <div className="flex justify-center items-center">
       <div className="bg-white lg:w-11/12 min-h-full sm:w-80  shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -11,7 +8,7 @@ const TopicList = ({ topics }) => {
 
         {topics.length === 0 && <p>No topics!</p>}
         <div className="lg:flex gap-2 flex-wrap">
-          <Sorting topics={topics} />
+          <Sorting topics={topics} sortingOrder={sortingOrder} />
         </div>
       </div>
     </div>

@@ -1,18 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Avatar from "../components/Avatar";
-import Button from "../utilities/Button";
-const Sorting = ({ topics }) => {
-  const [sortingOrder, setSortingOrder] = useState("asc");
 
-  const handleSorting = () => {
-    if (sortingOrder === "asc") {
-      setSortingOrder("desc");
-    } else {
-      setSortingOrder("asc");
-    }
-  };
-
+const Sorting = ({ topics, sortingOrder }) => {
   const sortedTopics = [...topics].sort((a, b) => {
     const dateA = a.date.toDate();
     const dateB = b.date.toDate();
@@ -33,7 +23,7 @@ const Sorting = ({ topics }) => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-row">
+            <div className="flex flex-row items-center mb-2 justify-between">
               <ul className="flex flex-row">
                 {topic.assignedUsersList.map((user) => (
                   <li key={user.photoURL} className="mr-2">
@@ -41,6 +31,7 @@ const Sorting = ({ topics }) => {
                   </li>
                 ))}
               </ul>
+              <div>Comments </div>
             </div>
           </Link>
         </div>
@@ -48,4 +39,5 @@ const Sorting = ({ topics }) => {
     </>
   );
 };
+
 export default Sorting;

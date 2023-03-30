@@ -3,10 +3,12 @@ import { useState } from "react";
 import TopicList from "../../components/TopicList";
 import { useCollection } from "../../hooks/useCollection";
 import { categories } from "../create/Create";
+import { useOutletContext } from "react-router-dom";
 
 const HomePage = () => {
   const { documents, error } = useCollection("projects");
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [sortingOrder] = useOutletContext();
 
   const handleCategoryChange = (event) => {
     setSelectedCategory(event.target.value);
@@ -31,7 +33,11 @@ const HomePage = () => {
         </select>
       </div>
       {error && <p>{error}</p>}
-      {filteredDocuments ? <TopicList topics={filteredDocuments} /> : <p>No topics found</p>}
+      {filteredDocuments ? (
+        <TopicList topics={filteredDocuments} sortingOrder={sortingOrder} />
+      ) : (
+        <p>No topics found</p>
+      )}
     </div>
   );
 };

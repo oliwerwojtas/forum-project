@@ -14,6 +14,7 @@ const Details = () => {
   if (!document) {
     return <div>Loading...</div>;
   }
+
   return (
     <div className="lg:flex justify-center items-center">
       <TopicDetails topic={document} />
