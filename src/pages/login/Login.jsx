@@ -3,17 +3,39 @@ import { useLogin } from "../../hooks/useLogin";
 import { useNavigate } from "react-router-dom";
 import FormInput from "../../components/FormInput";
 import Button from "../../utilities/Button";
+import { projectAuth, projectFirestore } from "../../firebase/config";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login, error, isPending } = useLogin();
+  const { login, isPending } = useLogin();
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    login(email, password);
 
-    navigate("/");
+    setLoading(true);
+    setError(null);
+
+    try {
+      const { user } = await projectAuth.signInWithEmailAndPassword(email, password);
+
+      const userRef = projectFirestore.collection("users").doc(user.uid);
+      const doc = await userRef.get();
+
+      if (doc.exists) {
+        login(email, password);
+        navigate("/");
+      } else {
+        setError("User not found.");
+      }
+    } catch (error) {
+      setError(error.message);
+    }
+
+    setLoading(false);
   };
 
   return (
@@ -39,8 +61,9 @@ const Login = () => {
           />
         </div>
         <div className="flex items-center justify-between">
-          <Button text="Login" />
+          <Button text="Login" disabled={loading} />
         </div>
+        {error && <p className="text-red-500 mt-4">{error}</p>}
       </form>
     </div>
   );

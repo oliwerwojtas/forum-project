@@ -42,7 +42,7 @@ const Create = () => {
     setCheckError(null);
     console.log(name, details, date, category.value, assignedUsers);
 
-    if (!category || assignedUsers.length < 1) {
+    if (!category || assignedUsers.length < 1 || assignedUsers.length > 2) {
       setCheckError("Please correct inputs");
       return;
     }
@@ -74,9 +74,6 @@ const Create = () => {
     if (!response.error) {
       navigate("/");
     }
-  };
-  const handleClose = () => {
-    navigate("/");
   };
 
   return (
@@ -120,6 +117,7 @@ const Create = () => {
               options={users}
               isMulti
               required
+              maxValue={2}
             />
           </div>
           <div className="flex items-center justify-center">

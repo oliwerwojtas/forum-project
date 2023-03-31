@@ -11,13 +11,13 @@ export const useLogin = () => {
     setIsPending(true);
 
     try {
-      const res = await projectAuth.signInWithEmailAndPassword(email, password);
+      const { user } = await projectAuth.signInWithEmailAndPassword(email, password);
 
-      await projectFirestore.collection("users").doc(res.user.uid).update({
+      await projectFirestore.collection("users").doc(user.uid).update({
         online: true,
       });
 
-      dispatch({ type: "LOGIN", payload: res.user });
+      dispatch({ type: "LOGIN", payload: user });
 
       setIsPending(false);
       setError(null);

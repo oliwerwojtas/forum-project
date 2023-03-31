@@ -15,23 +15,24 @@ const RootLayout = () => {
     } else {
       setSortingOrder("asc");
     }
-    return (
-      <>
-        <div>
-          <div>
-            <MainNavigation />
-            <div>
-              <div>{user && <UsersOnline />}</div>
-              <div>
-                {user && <Sidebar handleSort={handleSort} />}
+  };
 
-                <Outlet context={[sortingOrder, setSortingOrder]} />
-              </div>
+  return (
+    <>
+      <div>
+        <div>
+          <MainNavigation />
+          <div>
+            <div>{user && <UsersOnline />}</div>
+            <div>
+              {user && <Sidebar handleSort={handleSort} />}
+
+              <Outlet context={[sortingOrder, setSortingOrder]} />
             </div>
           </div>
         </div>
-      </>
-    );
-  };
+      </div>
+    </>
+  );
 };
 export default RootLayout;

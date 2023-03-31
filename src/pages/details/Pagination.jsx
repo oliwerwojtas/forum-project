@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import Button from "../../utilities/Button";
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   const pageNumbers = [];
   const [currentPage, setCurrentPage] = useState(1);
@@ -23,18 +23,16 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   };
 
   return (
-    <div>
-      <ul className="pagination">
+    <div className="">
+      <ul className="flex gap-2">
         <li className={currentPage === 1 ? "disabled" : ""}>
-          <a onClick={handlePrev} href="#!">
+          <Button text="Prev" onClick={handlePrev} href="#!">
             Prev
-          </a>
+          </Button>
         </li>
 
         <li className={currentPage === pageNumbers.length ? "disabled" : ""}>
-          <a onClick={handleNext} href="#!">
-            Next
-          </a>
+          <Button text="Next" onClick={handleNext} href="#!"></Button>
         </li>
       </ul>
     </div>

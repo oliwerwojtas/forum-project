@@ -45,13 +45,9 @@ const Comments = ({ topic }) => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <Wrapper>
+    <div className="lg:flex flex-col w-96 h-96 bg-slate-500 justify-between">
       <h4 className="text-2xl font-bold mb-4">Comments:</h4>
-      <Pagination
-        postsPerPage={postsPerPage}
-        totalPosts={topic.comments.length}
-        paginate={paginate}
-      />
+
       {currentComments.map((comment) => (
         <div key={comment.id} className="flex flex-row items-center mb-2">
           <Avatar src={comment.photoURL} className="mr-2" />
@@ -59,6 +55,11 @@ const Comments = ({ topic }) => {
           <p>{comment.content}</p>
         </div>
       ))}
+      <Pagination
+        postsPerPage={postsPerPage}
+        totalPosts={topic.comments.length}
+        paginate={paginate}
+      />
       <form onSubmit={handleSubmit}>
         <label className="block mb-2">
           <span className="font-bold">Add new comment:</span>
@@ -73,7 +74,7 @@ const Comments = ({ topic }) => {
         <Button text="Add comment" />
         {numComments}
       </form>
-    </Wrapper>
+    </div>
   );
 };
 

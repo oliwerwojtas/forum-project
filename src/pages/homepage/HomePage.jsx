@@ -33,11 +33,13 @@ const HomePage = () => {
         </select>
       </div>
       {error && <p>{error}</p>}
-      {filteredDocuments ? (
-        <TopicList topics={filteredDocuments} sortingOrder={sortingOrder} />
-      ) : (
-        <p>No topics found</p>
-      )}
+      <div>
+        {filteredDocuments ? (
+          <TopicList topics={filteredDocuments} sortingOrder={sortingOrder} />
+        ) : (
+          <p>No topics found</p>
+        )}
+      </div>
     </div>
   );
 };

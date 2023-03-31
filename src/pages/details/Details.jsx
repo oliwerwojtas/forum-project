@@ -3,6 +3,7 @@ import { useDocument } from "../../hooks/useDocument";
 
 import Comments from "./Comments";
 import TopicDetails from "./TopicDetails";
+import Wrapper from "../../utilities/Wrapper";
 const Details = () => {
   const { id } = useParams();
   const { error, document } = useDocument("projects", id);
@@ -17,8 +18,10 @@ const Details = () => {
 
   return (
     <div className="lg:flex justify-center items-center">
-      <TopicDetails topic={document} />
-      <Comments topic={document} />
+      <div className="lg:flex justify-between items-center bg-white shadow-md rounded w-8/12 px-8 pt-6 pb-8 mb-4">
+        <TopicDetails topic={document} />
+        <Comments topic={document} />
+      </div>
     </div>
   );
 };
