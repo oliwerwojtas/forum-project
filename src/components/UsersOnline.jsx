@@ -12,7 +12,7 @@ const UsersOnline = () => {
     <div className="lg:flex justify-center items-center">
       <div className=" flex p-2 lg:w-11/12">
         <div className="w-min flex items-center">
-          <h2>All users</h2>
+          <h2>Users:</h2>
         </div>
         {error && <div>{error}</div>}
         <Splide

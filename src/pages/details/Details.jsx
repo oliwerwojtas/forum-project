@@ -3,11 +3,11 @@ import { useDocument } from "../../hooks/useDocument";
 
 import Comments from "./Comments";
 import TopicDetails from "./TopicDetails";
-import Wrapper from "../../utilities/Wrapper";
+
 const Details = () => {
   const { id } = useParams();
   const { error, document } = useDocument("projects", id);
-
+  // console.log(document.createdBy.id);
   if (error) {
     return <div>{error}</div>;
   }
@@ -17,9 +17,9 @@ const Details = () => {
   }
 
   return (
-    <div className="lg:flex justify-center items-center">
-      <div className="lg:flex justify-between items-center bg-white shadow-md rounded w-8/12 px-8 pt-6 pb-8 mb-4">
-        <TopicDetails topic={document} />
+    <div className="lg:flex justify-center items-center ">
+      <div className="lg:flex items-center bg-black shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <TopicDetails topic={document} createdBy={document.createdBy.id} />
         <Comments topic={document} />
       </div>
     </div>

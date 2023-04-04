@@ -10,7 +10,10 @@ const Sorting = ({ topics, sortingOrder }) => {
   return (
     <>
       {sortedTopics.map((topic) => (
-        <div className="flex flex-col border-2 mb-2 lg:w-1/5 h-36 px-2 py-2 rounded" key={topic.id}>
+        <div
+          className="flex flex-col border-2 mb-2 lg:min-w-[20%] h-36 px-2 py-2 rounded"
+          key={topic.id}
+        >
           <Link to={`/details/${topic.id}`}>
             <div className="flex flex-col gap-8">
               <div className="flex items-center mb-2 justify-between">
@@ -31,7 +34,7 @@ const Sorting = ({ topics, sortingOrder }) => {
                     </li>
                   ))}
                 </ul>
-                <div>Comments </div>
+                <div>Comments({topic.comments.length})</div>
               </div>
             </div>
           </Link>

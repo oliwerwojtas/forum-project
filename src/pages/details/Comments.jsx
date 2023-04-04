@@ -4,7 +4,6 @@ import Avatar from "../../components/Avatar";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useFirestore } from "../../hooks/useFirestore";
 import Button from "../../utilities/Button";
-import Wrapper from "../../utilities/Wrapper";
 
 const Comments = ({ topic }) => {
   const [comment, setComment] = useState();
@@ -45,7 +44,7 @@ const Comments = ({ topic }) => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="lg:flex flex-col w-96 h-96 bg-slate-500 justify-between">
+    <div className="lg: flex flex-col justify-around min-w-[50%] h-96 bg-white">
       <h4 className="text-2xl font-bold mb-4">Comments:</h4>
 
       {currentComments.map((comment) => (
@@ -72,7 +71,7 @@ const Comments = ({ topic }) => {
           ></textarea>
         </label>
         <Button text="Add comment" />
-        {numComments}
+        Current comments({numComments})
       </form>
     </div>
   );
