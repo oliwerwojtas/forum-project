@@ -3,12 +3,12 @@ import { useAuthContext } from "./hooks/useAuthContext";
 import HomePage from "./pages/homepage/HomePage";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
-import Create from "./pages/create/Create";
 import Details from "./pages/details/Details";
 import RootLayout from "./pages/RootLayout";
-import ErrorPage from "./pages/ErrorPage";
+import ErrorPage from "./utilities/ErrorPage";
 
 import "./index.css";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -18,7 +18,6 @@ const router = createBrowserRouter([
       { path: "/", element: <HomePage /> },
       { path: "/login", element: <Login /> },
       { path: "/signup", element: <Signup /> },
-      { path: "/create", element: <Create /> },
       { path: "/details/:id", element: <Details /> },
     ],
   },
@@ -28,7 +27,7 @@ function App() {
   const { authIsReady } = useAuthContext();
 
   return (
-    <div className="h-screen dark:bg-black ">
+    <div className="lg:h-screen bg-[#EFF1FD] dark:bg-[#161722] ">
       {authIsReady && <RouterProvider router={router} />}
     </div>
   );

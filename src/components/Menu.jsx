@@ -31,7 +31,7 @@ const Sidebar = ({ handleSort }) => {
           </li>
 
           <li className="ml-2">
-            <Button text="Sort" onClick={handleSort} />
+            <Button text="Sort (by date)" onClick={handleSort} />
           </li>
         </ul>
       </div>

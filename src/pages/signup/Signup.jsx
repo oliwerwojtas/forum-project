@@ -1,25 +1,32 @@
 import { useState } from "react";
 import { useSignup } from "../../hooks/useSignup";
-import FormInput from "../../components/FormInput";
+import FormInput from "../../utilities/FormInput";
 import Button from "../../utilities/Button";
+import ErrorPage from "../../utilities/ErrorPage";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [image, setImage] = useState(null);
   const [imageError, setImageError] = useState(null);
-  const { signup, isPending, error } = useSignup();
+  const [error, setError] = useState(null);
+  const { signup } = useSignup();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    signup(email, password, displayName, image);
+
+    setError(null);
+    try {
+      signup(email, password, displayName, image);
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   const handleFileChange = (e) => {
     setImage(null);
 
     let selected = e.target.files[0];
-    console.log(selected);
 
     if (!selected) {
       setImageError("Select a file");
@@ -38,7 +45,6 @@ const Signup = () => {
 
     setImageError(null);
     setImage(selected);
-    console.log("updated");
   };
 
   return (
@@ -68,6 +74,7 @@ const Signup = () => {
         />
         <FormInput label="Image:" type="file" onChange={handleFileChange} required />
         {imageError && <div>{imageError}</div>}
+        {error && <ErrorPage message={error} />}
         <Button text="Sign up" className="mt-4" />
       </form>
     </div>

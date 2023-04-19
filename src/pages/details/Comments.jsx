@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Pagination from "./Pagination";
+import Pagination from "../../utilities/Pagination";
 import Avatar from "../../components/Avatar";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useFirestore } from "../../hooks/useFirestore";
@@ -44,13 +44,12 @@ const Comments = ({ topic }) => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="lg: flex flex-col justify-around min-w-[50%] h-96 bg-white">
-      <h4 className="text-2xl font-bold mb-4">Comments:</h4>
+    <div className="lg: flex flex-col justify-around min-w-[50%] h-96 px-2 py-2 rounded bg-white dark:bg-[#777a92] ">
+      <h4 className="font-bold mb-4">Comments:</h4>
 
       {currentComments.map((comment) => (
         <div key={comment.id} className="flex flex-row items-center mb-2">
           <Avatar src={comment.photoURL} className="mr-2" />
-          {/* <p>{comment.displayName}</p> */}
           <p>{comment.content}</p>
         </div>
       ))}
@@ -70,8 +69,8 @@ const Comments = ({ topic }) => {
             className="block w-full border-gray-400 border rounded py-2 px-3 mt-1"
           ></textarea>
         </label>
-        <Button text="Add comment" />
-        Current comments({numComments})
+        <Button text="Add comment" className="mr-2" />
+        comments({numComments})
       </form>
     </div>
   );

@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import MainNavigation from "../components/MainNavigation";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/Menu";
 import UsersOnline from "../components/UsersOnline";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useState } from "react";

@@ -1,9 +1,10 @@
-const Button = ({ text, className, onClick }) => {
+const Button = ({ text, className, onClick, key }) => {
   return (
     <button
-      className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${className}`}
+      className={`bg-[#484b6a] hover:bg-[#2c2f4e] text-white font-bold py-2 px-4 rounded ${className}`}
       type="submit"
       onClick={onClick}
+      key={key}
     >
       {text}
     </button>

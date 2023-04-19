@@ -5,7 +5,6 @@ import Button from "../../utilities/Button";
 
 import { useAuthContext } from "../../hooks/useAuthContext";
 const TopicDetails = ({ topic, createdBy }) => {
-  console.log(createdBy);
   const { deleteDocument } = useFirestore("projects");
   const { user } = useAuthContext();
   const handleClick = () => {
@@ -21,13 +20,13 @@ const TopicDetails = ({ topic, createdBy }) => {
   ];
 
   return (
-    <div className="lg: flex flex-col justify-around min-w-[50%] h-96 bg-white mb-4 ">
-      <h2 className="text-center">Topic Details</h2>
-      <div className="flex justify-around">
+    <div className="lg: flex flex-col justify-around min-w-[50%] h-96 px-2 py-2 bg-white mb-4 rounded dark:bg-[#777a92]">
+      <h2 className="font-bold mb-4 ">Topic Details</h2>
+      <div className="flex justify-around ">
         {topicDetails.map((detail) => (
           <div key={detail.title}>
-            <h4 className="text-2xl font-bold mb-2">{detail.title}</h4>
-            <p className="text-gray-600 mb-4">{detail.content}</p>
+            <h4 className=" font-bold mb-2">{detail.title}</h4>
+            <p className="text-gray-600 mb-4 dark:text-[white]">{detail.content}</p>
           </div>
         ))}
       </div>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "../../utilities/Button";
+import Button from "./Button";
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   const pageNumbers = [];
   const [currentPage, setCurrentPage] = useState(1);

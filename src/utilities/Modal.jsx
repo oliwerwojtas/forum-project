@@ -7,9 +7,7 @@ const Modal = ({ isOpen, handleClose }) => {
       isOpen={isOpen}
       onRequestClose={handleClose}
       style={{
-        overlay: {
-          backgroundColor: "rgba(0, 0, 0, 0.75)",
-        },
+        overlay: { backgroundColor: "rgba(0, 0, 0, 0.75)" },
         content: {
           top: "50%",
           left: "50%",

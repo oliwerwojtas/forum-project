@@ -24,8 +24,8 @@ export const useLogout = () => {
 
       setIsPending(false);
       setError(null);
+      localStorage.removeItem("theme");
     } catch (err) {
-      console.log(err.message);
       setError(err.message);
       setIsPending(false);
     }

@@ -1,4 +1,4 @@
-import "./Avatar.css";
+// import "./Avatar.css";
 const Avatar = ({ src }) => {
   return (
     <div className="flex justify-center w-12 h-12 overflow-hidden mr-1 border-2 rounded-full ">

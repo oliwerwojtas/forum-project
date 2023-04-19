@@ -5,8 +5,9 @@ import { timestamp } from "../../firebase/config";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useFirestore } from "../../hooks/useFirestore";
 import { useNavigate } from "react-router-dom";
-import FormInput from "../../components/FormInput";
+import FormInput from "../../utilities/FormInput";
 import Button from "../../utilities/Button";
+import ErrorPage from "../../utilities/ErrorPage";
 export const categories = [
   { value: "hobby", label: "Hobby" },
   { value: "fashion", label: "Fashion" },
@@ -17,14 +18,13 @@ const Create = () => {
   const navigate = useNavigate();
   const { addDocument, response } = useFirestore("projects");
   const { documents } = useCollection("users");
-  console.log(documents);
   const [users, setUsers] = useState([]);
   const [name, setName] = useState("");
   const [details, setDetails] = useState("");
   const [date, setDate] = useState("");
   const [category, setCategory] = useState("");
   const [assignedUsers, setAssignedUsers] = useState([]);
-  const [checkError, setCheckError] = useState(null);
+  const [error, setError] = useState(null);
   const { user } = useAuthContext();
 
   useEffect(() => {
@@ -33,17 +33,15 @@ const Create = () => {
         return { value: user, label: user.displayName };
       });
       setUsers(options);
-      console.log(documents);
     }
   }, [documents]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setCheckError(null);
-    console.log(name, details, date, category.value, assignedUsers);
+    setError(null);
 
     if (!category || assignedUsers.length < 1 || assignedUsers.length > 2) {
-      setCheckError("Please correct inputs");
+      setError("Please correct inputs");
       return;
     }
 
@@ -74,6 +72,12 @@ const Create = () => {
     if (!response.error) {
       navigate("/");
     }
+    setName("");
+    setDate("");
+    setUsers("");
+    setDetails("");
+    setCategory([]);
+    setAssignedUsers([]);
   };
 
   return (
@@ -109,9 +113,12 @@ const Create = () => {
             />
           </div>
           <div className="mb-4">
+            <p className="mb-2">Select category: </p>
             <Select onChange={(option) => setCategory(option)} options={categories} required />
           </div>
           <div className="mb-4">
+            <p className="mb-2">Select users:</p>
+
             <Select
               onChange={(option) => setAssignedUsers(option)}
               options={users}
@@ -123,7 +130,7 @@ const Create = () => {
           <div className="flex items-center justify-center">
             <Button text="Add subject" />
           </div>
-          {checkError && <p className="error">{checkError}</p>}
+          {error && <ErrorPage message={error} />}
         </form>
       </div>
     </div>

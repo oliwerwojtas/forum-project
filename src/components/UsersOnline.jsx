@@ -1,5 +1,6 @@
 import { useCollection } from "../hooks/useCollection";
 import Avatar from "./Avatar";
+import ErrorPage from "../utilities/ErrorPage";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 const UsersOnline = () => {
@@ -9,12 +10,12 @@ const UsersOnline = () => {
     return a.online ? -1 : b.online ? 1 : 0;
   };
   return (
-    <div className="lg:flex justify-center items-center">
+    <div className="lg:flex justify-center items-center bg-[#e4e5f1] dark:bg-[#25273c]">
       <div className=" flex p-2 lg:w-11/12">
         <div className="w-min flex items-center">
-          <h2>Users:</h2>
+          <h2 className="mr-2 dark:text-[white]">Users:</h2>
         </div>
-        {error && <div>{error}</div>}
+        {error && <ErrorPage message={error} />}
         <Splide
           className="w-full"
           options={{
@@ -51,7 +52,9 @@ const UsersOnline = () => {
                     <div className="flex items-center justify-center ">
                       <Avatar className="w-12 h-12" src={user.photoURL} />
                     </div>
-                    <span className="text-center text-sm">{user.displayName}</span>
+                    <span className="text-center text-sm overflow-hidden dark:text-[white]">
+                      {user.displayName}
+                    </span>
                   </div>
                 </SplideSlide>
               ))}

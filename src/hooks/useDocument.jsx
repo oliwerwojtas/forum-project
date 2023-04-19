@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { projectFirestore } from "../firebase/config";
-//document  fetching for user ID
+
 export const useDocument = (collection, id) => {
   const [document, setDocument] = useState(null);
   const [error, setError] = useState(null);
@@ -14,12 +14,11 @@ export const useDocument = (collection, id) => {
           setDocument({ ...snapshot.data(), id: snapshot.id });
           setError(null);
         } else {
-          setError("no exists");
+          setError("No exists!");
         }
       },
-      (err) => {
-        console.log(err.message);
-        setError("failed to get document");
+      (error) => {
+        setError(error);
       }
     );
 
