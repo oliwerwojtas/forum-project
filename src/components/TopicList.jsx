@@ -1,6 +1,7 @@
 import Sorting from "../components/Sorting";
 import Pagination from "../utilities/Pagination";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 const TopicList = ({ topics, sortingOrder }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(12);
@@ -19,10 +20,11 @@ const TopicList = ({ topics, sortingOrder }) => {
         <h2 className="text-center font-bold text-xl mb-6 dark:text-[white]">Lets talk about...</h2>
 
         {topics.length === 0 && <p className="dark:text-[white] mb-2">No topics!</p>}
-        <div className="lg:flex gap-2 flex-wrap justify-center">
+
+        <motion.div layout className="lg:flex gap-2 flex-wrap justify-center">
           <Sorting topics={currentTopics} sortingOrder={sortingOrder} />
-        </div>
-        <div>
+        </motion.div>
+        <div className="mt-2">
           <Pagination postsPerPage={postsPerPage} totalPosts={topics.length} paginate={paginate} />
         </div>
       </div>

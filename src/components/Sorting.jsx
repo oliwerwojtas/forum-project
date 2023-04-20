@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Avatar from "../components/Avatar";
-
+import { motion } from "framer-motion";
 const Sorting = ({ topics, sortingOrder }) => {
   const sortedTopics = [...topics].sort((a, b) => {
     const dateA = a.date.toDate();
@@ -10,7 +10,11 @@ const Sorting = ({ topics, sortingOrder }) => {
   return (
     <>
       {sortedTopics.map((topic) => (
-        <div
+        <motion.div
+          animate={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          exit={{ opacity: 0 }}
+          layout
           className="flex flex-col mb-2 lg:min-w-[20%] h-36 px-2 py-2 bg-white dark:bg-[#777a92] rounded-md"
           key={topic.id}
         >
@@ -38,7 +42,7 @@ const Sorting = ({ topics, sortingOrder }) => {
               </div>
             </div>
           </Link>
-        </div>
+        </motion.div>
       ))}
     </>
   );

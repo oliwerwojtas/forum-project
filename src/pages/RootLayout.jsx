@@ -4,6 +4,8 @@ import Sidebar from "../components/Menu";
 import UsersOnline from "../components/UsersOnline";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useState } from "react";
+import { motion } from "framer-motion";
+
 const RootLayout = () => {
   const { user } = useAuthContext();
 
@@ -22,14 +24,19 @@ const RootLayout = () => {
       <div>
         <div>
           <MainNavigation />
-          <div>
+          <motion.div
+            animate={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2 }}
+          >
             <div>{user && <UsersOnline />}</div>
             <div>
               {user && <Sidebar handleSort={handleSort} />}
 
               <Outlet context={[sortingOrder, setSortingOrder]} />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </>
