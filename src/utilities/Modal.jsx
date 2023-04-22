@@ -15,7 +15,6 @@ const Modal = ({ isOpen, handleClose }) => {
           bottom: "auto",
           marginRight: "-50%",
           transform: "translate(-50%, -50%)",
-          // padding: "2rem",
           border: "none",
           borderRadius: "10px",
           boxShadow: "0 0 10px rgba(0, 0, 0, 0.25)",

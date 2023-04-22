@@ -5,7 +5,7 @@ import FormInput from "../../utilities/FormInput";
 import Button from "../../utilities/Button";
 import { projectAuth, projectFirestore } from "../../firebase/config";
 import ErrorPage from "../../utilities/ErrorPage";
-
+import { Link } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -61,9 +61,16 @@ const Login = () => {
             required
           />
         </div>
+        <div className="flex justify-end">
+          <Link to="/signup" className=" relative group">
+            Create an account
+            <div className="absolute w-full h-0.5 bg-black scale-x-0 group-hover:scale-x-100 transition-transform"></div>
+          </Link>
+        </div>
         <div className="flex items-center justify-between">
           <Button text="Login" disabled={loading} />
         </div>
+
         {error && <ErrorPage message={error} />}
       </form>
     </div>

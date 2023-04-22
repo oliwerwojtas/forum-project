@@ -48,9 +48,7 @@ const TopicDetails = ({ topic, createdBy }) => {
             text="Delete"
             onClick={handleClick}
             className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded "
-          >
-            DELETE
-          </Button>
+          ></Button>
         )}
       </div>
     </div>

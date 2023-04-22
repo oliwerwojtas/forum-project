@@ -1,7 +1,7 @@
 import Sorting from "../components/Sorting";
 import Pagination from "../utilities/Pagination";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 const TopicList = ({ topics, sortingOrder }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(12);

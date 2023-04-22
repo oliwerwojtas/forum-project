@@ -81,7 +81,7 @@ const Create = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center ">
       <div className="bg-white w-80 shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <h2 className="title text-center font-bold text-xl mb-6">Create a new subject</h2>
         <form onSubmit={handleSubmit}>

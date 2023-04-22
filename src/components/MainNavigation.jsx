@@ -21,28 +21,17 @@ const MainNavigation = () => {
         <li className="mr-2">
           <ThemeSwitcher />
         </li>
-        <li>
+        <li className="flex gap-2">
           {!user ? (
             <>
-              <NavLink
-                to="/login"
-                className={({ isActive }) =>
-                  isActive
-                    ? "font-bold border-b-2 black mr-2 dark:text-[white]"
-                    : "dark:text-[white]"
-                }
-              >
+              <NavLink to="/login" className="relative group dark:text-white">
                 Login
+                <div className="absolute w-full h-0.5 bg-black scale-x-0 group-hover:scale-x-100 transition-transform dark:bg-white"></div>
               </NavLink>
-              <NavLink
-                to="/signup"
-                className={({ isActive }) =>
-                  isActive
-                    ? "font-bold border-b-2 black ml-2 dark:text-[white]"
-                    : "dark:text-[white]"
-                }
-              >
-                Signup
+
+              <NavLink to="/signup" className="relative group dark:text-white">
+                Singup
+                <div className="absolute w-full h-0.5 bg-black scale-x-0 group-hover:scale-x-100 transition-transform dark:bg-white/80"></div>
               </NavLink>
             </>
           ) : (
