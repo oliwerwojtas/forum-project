@@ -7,31 +7,22 @@ const Modal = ({ isOpen, handleClose }) => {
       isOpen={isOpen}
       onRequestClose={handleClose}
       style={{
-        overlay: { backgroundColor: "rgba(0, 0, 0, 0.75)" },
-        content: {
-          top: "50%",
-          left: "50%",
-          right: "auto",
-          bottom: "auto",
-          marginRight: "-50%",
-          transform: "translate(-50%, -50%)",
-          border: "none",
-          borderRadius: "10px",
-          boxShadow: "0 0 10px rgba(0, 0, 0, 0.25)",
-          maxWidth: "350px",
-          maxHeight: "80vh",
-          overflowY: "auto",
+        overlay: {
+          backgroundColor: "rgba(0, 0, 0, 0.75)",
         },
       }}
+      className="fixed inset-0 flex"
     >
-      <Create />
-      <Button
-        text="Close"
-        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded "
-        onClick={handleClose}
-      >
-        Zamknij
-      </Button>
+      <div className="m-auto bg-[#e4e5f1] l max-w-md p-5 rounded dark:bg-[#25273c]">
+        <Create />
+        <Button
+          text="Close"
+          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded "
+          onClick={handleClose}
+        >
+          Zamknij
+        </Button>
+      </div>
     </ReactModal>
   );
 };

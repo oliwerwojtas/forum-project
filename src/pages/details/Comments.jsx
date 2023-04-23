@@ -36,7 +36,7 @@ const Comments = ({ topic }) => {
   };
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(2);
+  const postsPerPage = 2;
   const indexLastPost = currentPage * postsPerPage;
   const indexFirstPost = indexLastPost - postsPerPage;
   const currentComments = topic.comments.slice(indexFirstPost, indexLastPost);

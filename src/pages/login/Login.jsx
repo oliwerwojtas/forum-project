@@ -25,7 +25,7 @@ const Login = () => {
 
       const userRef = projectFirestore.collection("users").doc(user.uid);
       const doc = await userRef.get();
-
+      console.log(userRef);
       if (doc.exists) {
         login(email, password);
         navigate("/");

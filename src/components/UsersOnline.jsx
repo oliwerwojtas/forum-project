@@ -29,12 +29,24 @@ const UsersOnline = () => {
                 perPage: 4,
                 gap: "0rem",
               },
+              480: {
+                perPage: 6,
+              },
               640: {
                 perPage: 8,
               },
+              720: {
+                perPage: 14,
+              },
+              900: {
+                perPage: 16,
+              },
               1024: {
-                perPage: 24,
+                perPage: 18,
                 arrows: false,
+              },
+              1400: {
+                perPage: 22,
               },
             },
           }}
@@ -52,7 +64,10 @@ const UsersOnline = () => {
                     <div className="flex items-center justify-center ">
                       <Avatar className="w-12 h-12" src={user.photoURL} />
                     </div>
-                    <span className="text-center text-sm overflow-hidden dark:text-[white]">
+                    <span
+                      className="text-center text-sm dark:text-[white] truncate"
+                      title={user.displayName}
+                    >
                       {user.displayName}
                     </span>
                   </div>

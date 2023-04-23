@@ -3,12 +3,14 @@ import { useSignup } from "../../hooks/useSignup";
 import FormInput from "../../utilities/FormInput";
 import Button from "../../utilities/Button";
 import ErrorPage from "../../utilities/ErrorPage";
+
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [image, setImage] = useState(null);
   const [imageError, setImageError] = useState(null);
+  const [nameError, setNameError] = useState(null);
   const [error, setError] = useState(null);
   const { signup } = useSignup();
 
@@ -46,7 +48,15 @@ const Signup = () => {
     setImageError(null);
     setImage(selected);
   };
-
+  const handleNameChange = (e) => {
+    const name = e.target.value;
+    if (name.length > 10) {
+      setNameError("Name must be 10 characters or less");
+    } else {
+      setNameError(null);
+      setDisplayName(name);
+    }
+  };
   return (
     <div className="flex justify-center items-center mt-14">
       <form className="bg-white w-80 shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
@@ -68,12 +78,13 @@ const Signup = () => {
         <FormInput
           label="Name:"
           type="text"
-          onChange={(e) => setDisplayName(e.target.value)}
+          onChange={handleNameChange}
           value={displayName}
           required
         />
+        {nameError && <ErrorPage message={nameError} />}
         <FormInput label="Image:" type="file" onChange={handleFileChange} required />
-        {imageError && <div>{imageError}</div>}
+        {imageError && <ErrorPage message={imageError} />}
         {error && <ErrorPage message={error} />}
         <Button text="Sign up" className="mt-4" />
       </form>

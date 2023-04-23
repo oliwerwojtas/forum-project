@@ -2,15 +2,17 @@ import Avatar from "../../components/Avatar";
 import { useFirestore } from "../../hooks/useFirestore";
 import { Link } from "react-router-dom";
 import Button from "../../utilities/Button";
-
+import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../hooks/useAuthContext";
 const TopicDetails = ({ topic, createdBy }) => {
+  const navigate = useNavigate();
   const { deleteDocument } = useFirestore("projects");
   const { user } = useAuthContext();
   const handleClick = () => {
     const confirmed = window.confirm("Are you sure you want to delete this project?");
     if (confirmed) {
       deleteDocument(topic.id);
+      navigate("/");
     }
   };
   const topicDetails = [
