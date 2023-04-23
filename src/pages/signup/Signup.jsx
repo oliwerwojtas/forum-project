@@ -3,7 +3,7 @@ import { useSignup } from "../../hooks/useSignup";
 import FormInput from "../../utilities/FormInput";
 import Button from "../../utilities/Button";
 import ErrorPage from "../../utilities/ErrorPage";
-
+import { projectFirestore } from "../../firebase/config";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,11 +14,19 @@ const Signup = () => {
   const [error, setError] = useState(null);
   const { signup } = useSignup();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     setError(null);
     try {
+      const displayNameRef = projectFirestore
+        .collection("users")
+        .where("displayName", "==", displayName);
+      const snapshot = await displayNameRef.get();
+      if (!snapshot.empty) {
+        setNameError("This username is already taken");
+        return;
+      }
       signup(email, password, displayName, image);
     } catch (error) {
       setError(error.message);
