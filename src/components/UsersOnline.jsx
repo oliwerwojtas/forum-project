@@ -11,7 +11,7 @@ const UsersOnline = () => {
   };
   return (
     <div className="lg:flex justify-center items-center bg-[#e4e5f1] dark:bg-[#25273c]">
-      <div className=" flex p-2 lg:w-11/12">
+      <div className="w-full flex p-2 lg:w-11/12">
         <div className="w-min flex items-center">
           <h2 className="mr-2 dark:text-[white]">Users:</h2>
         </div>
@@ -36,17 +36,19 @@ const UsersOnline = () => {
                 perPage: 8,
               },
               720: {
-                perPage: 14,
+                perPage: 10,
               },
               900: {
-                perPage: 16,
+                perPage: 12,
               },
               1024: {
-                perPage: 18,
-                arrows: false,
+                perPage: 14,
+              },
+              1224: {
+                perPage: 16,
               },
               1400: {
-                perPage: 22,
+                perPage: 18,
               },
             },
           }}
@@ -56,7 +58,7 @@ const UsersOnline = () => {
               .slice()
               .sort(sortUsers)
               .map((user) => (
-                <SplideSlide key={user.id}>
+                <SplideSlide key={user.id} className="relative z-10">
                   <div className="flex flex-col justify-center w-full relative">
                     {user.online && (
                       <span className="inline-block w-3 h-3 rounded-full bg-green-500 border-2 border-white absolute"></span>
