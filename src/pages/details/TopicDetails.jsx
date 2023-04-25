@@ -23,14 +23,12 @@ const TopicDetails = ({ topic, createdBy }) => {
 
   return (
     <div className="lg: flex flex-col justify-around min-w-[50%] h-96 px-2 py-2 bg-white mb-4 rounded dark:bg-[#777a92]">
-      <h2 className="font-bold mb-4 ">Topic Details</h2>
-      <div className="flex justify-around ">
-        {topicDetails.map((detail) => (
-          <div key={detail.title}>
-            <h4 className=" font-bold mb-2">{detail.title}</h4>
-            <p className="text-gray-600 mb-4 dark:text-[white]">{detail.content}</p>
-          </div>
-        ))}
+      <div className="flex justify-around">
+        <h2 className="font-bold mb-4 ">Topic Details</h2>
+        <p>Date: {topic.date.toDate().toLocaleDateString()}</p>
+      </div>
+      <div className="flex justify-around">
+        <p className="">{topic.name}</p>
       </div>
       <div className="font-bold">Assigned Users:</div>
       <div className="flex flex-wrap">

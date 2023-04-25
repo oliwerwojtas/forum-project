@@ -12,10 +12,8 @@ const MainNavigation = () => {
   const { user } = useAuthContext();
 
   return (
-    <nav
-      className={"w-full py-6 px-0 box-border sticky top-0 z-20 bg-white text-lg dark:bg-[#777a92]"}
-    >
-      <ul className={"flex justify-end items-center px-4"}>
+    <nav className="w-full py-6 px-0 box-border sticky top-0 z-20 bg-white text-lg dark:bg-[#777a92]">
+      <ul className="flex justify-end items-center px-4">
         <li className="flex items-center mr-auto font-bold">
           <span>TalkTogether</span>
           <img className="w-9" src={Logo} alt="project logo" />

@@ -17,7 +17,7 @@ const TopicList = ({ topics, sortingOrder }) => {
   return (
     <div className="flex justify-center items-center">
       <div className="bg-[#e4e5f1] dark:bg-[#25273c] min-h-full sm:w-11/12  shadow-md rounded px-8 pt-6 pb-8 mb-4">
-        <h2 className="text-center font-bold text-xl mb-6 dark:text-[white]">Lets talk about...</h2>
+        <h2 className="text-center font-bold text-xl mb-4 dark:text-[white]">Lets talk about...</h2>
 
         {topics.length === 0 && <p className="dark:text-[white] mb-2">No topics!</p>}
 

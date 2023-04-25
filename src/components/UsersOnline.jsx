@@ -12,12 +12,12 @@ const UsersOnline = () => {
   return (
     <div className="lg:flex justify-center items-center bg-[#e4e5f1] dark:bg-[#25273c]">
       <div className="w-full flex p-2 lg:w-11/12">
-        <div className="w-min flex items-center">
+        <div className=" flex items-center sm:w-2/12 lg:w-16">
           <h2 className="mr-2 dark:text-[white]">Users:</h2>
         </div>
         {error && <ErrorPage message={error} />}
         <Splide
-          className="w-full"
+          className="sm:w-10/12 lg:w-full"
           options={{
             arrows: false,
             pagination: false,
@@ -27,7 +27,7 @@ const UsersOnline = () => {
             breakpoints: {
               320: {
                 perPage: 4,
-                gap: "0rem",
+                gap: "",
               },
               480: {
                 perPage: 6,

@@ -76,8 +76,7 @@ const Create = () => {
     setDate("");
     setUsers("");
     setDetails("");
-    setCategory([]);
-    setAssignedUsers([]);
+    
   };
 
   return (

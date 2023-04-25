@@ -15,14 +15,16 @@ const Sorting = ({ topics, sortingOrder }) => {
           initial={{ opacity: 0 }}
           exit={{ opacity: 0 }}
           layout
-          className="flex flex-col mb-2 lg:min-w-[20%] h-36 px-2 py-2 bg-white dark:bg-[#777a92] rounded-md"
+          className="flex flex-col mb-2 lg:min-w-[22rem] h-36 px-2 py-2 bg-white dark:bg-[#777a92] rounded-md"
           key={topic.id}
         >
           <Link to={`/details/${topic.id}`}>
             <div className="flex flex-col gap-8">
               <div className="flex items-center mb-2 justify-between">
                 <div>
-                  <h4 className="text-lg font-medium">{topic.name}</h4>
+                  <h4 className="font-medium truncate" title={topic.name}>
+                    {topic.name.length > 20 ? topic.name.slice(0, 20) + "..." : topic.name}
+                  </h4>
                 </div>
                 <div>
                   <p className="text-gray-500 dark:text-[white] text-sm ml-2 ">
