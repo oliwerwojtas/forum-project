@@ -6,7 +6,7 @@ import Signup from "./pages/signup/Signup";
 import Details from "./pages/details/Details";
 import RootLayout from "./pages/RootLayout";
 import ErrorPage from "./utilities/ErrorPage";
-
+import ForgotPassword from "./pages/password/ForgotPassword";
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -17,6 +17,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <HomePage /> },
       { path: "/login", element: <Login /> },
+      { path: "/forgotPassword", element: <ForgotPassword /> },
       { path: "/signup", element: <Signup /> },
       { path: "/details/:id", element: <Details /> },
     ],

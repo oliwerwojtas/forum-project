@@ -62,13 +62,17 @@ const Login = () => {
             required
           />
         </div>
-        <div className="flex justify-end">
+        <div className="flex justify-between">
           <Link to="/signup" className=" relative group">
             Create an account
             <div className="absolute w-full h-0.5 bg-black scale-x-0 group-hover:scale-x-100 transition-transform"></div>
           </Link>
+          <Link to="/forgotPassword" className=" relative group">
+            Reset
+            <div className="absolute w-full h-0.5 bg-black scale-x-0 group-hover:scale-x-100 transition-transform"></div>
+          </Link>
         </div>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between mt-4">
           <Button text="Login" disabled={loading} />
         </div>
 
