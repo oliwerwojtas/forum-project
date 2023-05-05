@@ -1,8 +1,5 @@
 {
   "projects": {
-    "default": "forum-app-10da8",
-    "forum-app": "forum-app-10da8"
-  },
-  "targets": {},
-  "etags": {}
+    "default": "learning-project-31a16"
+  }
 }

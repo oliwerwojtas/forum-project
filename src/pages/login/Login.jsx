@@ -28,6 +28,7 @@ const Login = () => {
       console.log(userRef);
       if (doc.exists) {
         login(email, password);
+
         navigate("/");
       } else {
         setError("User not found.");
