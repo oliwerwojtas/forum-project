@@ -25,6 +25,7 @@ const Create = () => {
   const [category, setCategory] = useState("");
   const [assignedUsers, setAssignedUsers] = useState([]);
   const [error, setError] = useState(null);
+  const [resetKey, setResetKey] = useState(0);
   const { user } = useAuthContext();
 
   useEffect(() => {
@@ -74,9 +75,8 @@ const Create = () => {
     }
     setName("");
     setDate("");
-    setUsers("");
+    setResetKey(resetKey + 1);
     setDetails("");
-    
   };
 
   return (
@@ -113,12 +113,18 @@ const Create = () => {
           </div>
           <div className="mb-4">
             <p className="mb-2">Select category: </p>
-            <Select onChange={(option) => setCategory(option)} options={categories} required />
+            <Select
+              key={resetKey}
+              onChange={(option) => setCategory(option)}
+              options={categories}
+              required
+            />
           </div>
           <div className="mb-4">
             <p className="mb-2">Select users:</p>
 
             <Select
+              key={resetKey}
               onChange={(option) => setAssignedUsers(option)}
               options={users}
               isMulti

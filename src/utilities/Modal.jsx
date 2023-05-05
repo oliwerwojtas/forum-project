@@ -9,6 +9,7 @@ const Modal = ({ isOpen, handleClose }) => {
       style={{
         overlay: {
           backgroundColor: "rgba(0, 0, 0, 0.75)",
+          zIndex: 30,
         },
       }}
       className="fixed inset-0 flex"

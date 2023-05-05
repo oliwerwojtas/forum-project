@@ -17,7 +17,7 @@ const Sidebar = ({ handleSort }) => {
 
   return (
     <div className="flex justify-center items-center mb-4">
-      <div className="lg:w-11/12 mt-2">
+      <div className="lg:w-11/12 mt-4">
         <ul className="flex justify-start">
           <li className="mr-2">
             <NavLink to="/">
