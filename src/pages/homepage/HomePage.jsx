@@ -1,11 +1,12 @@
 import { useState } from "react";
-
-import TopicList from "../../components/TopicList";
-import { useCollection } from "../../hooks/useCollection";
-import { categories } from "../create/Create";
 import { useOutletContext } from "react-router-dom";
+import { useCollection } from "../../hooks/useCollection";
+//components
+import TopicList from "../../components/TopicList";
 import Button from "../../utilities/Button";
 import ErrorPage from "../../utilities/ErrorPage";
+//utilities
+import { categories } from "../create/Create";
 
 const HomePage = () => {
   const { documents, error } = useCollection("projects");
@@ -26,20 +27,22 @@ const HomePage = () => {
     <div className="flex justify-center items-center flex-col">
       <div className="flex flex-wrap justify-center items-center gap-2 mb-4">
         <Button
-          className="mr-2"
+          className="mr-2 relative z-10"
           text="Wszystkie"
           key="all"
           onClick={() => handleCategoryChange("all")}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         />
         {categories.map((category) => (
           <Button
             text={category.label}
             key={category.value}
             onClick={() => handleCategoryChange(category.value)}
-            className="mr-2"
-          >
-            {category.label}
-          </Button>
+            className="mr-2 relative"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          />
         ))}
       </div>
       {error && <ErrorPage message={error} />}

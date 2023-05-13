@@ -1,10 +1,12 @@
-import { Outlet } from "react-router-dom";
+import { useState } from "react";
+import { useAuthContext } from "../hooks/useAuthContext";
+//components
 import MainNavigation from "../components/MainNavigation";
 import Sidebar from "../components/Menu";
 import UsersOnline from "../components/UsersOnline";
-import { useAuthContext } from "../hooks/useAuthContext";
+//utilities
+import { Outlet } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 const RootLayout = () => {
   const { user } = useAuthContext();

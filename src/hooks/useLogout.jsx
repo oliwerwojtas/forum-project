@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { projectAuth, projectFirestore } from "../firebase/config";
 import { useAuthContext } from "./useAuthContext";
 import { useNavigate } from "react-router-dom";
+import { projectAuth, projectFirestore } from "../firebase/config";
 
 export const useLogout = () => {
   const [error, setError] = useState(null);

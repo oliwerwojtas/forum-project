@@ -1,6 +1,8 @@
-import ReactModal from "react-modal";
 import Create from "../pages/create/Create";
 import Button from "./Button";
+//utilities
+import ReactModal from "react-modal";
+
 const Modal = ({ isOpen, handleClose }) => {
   return (
     <ReactModal

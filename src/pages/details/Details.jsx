@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useDocument } from "../../hooks/useDocument";
-
+//components
 import Comments from "./Comments";
 import TopicDetails from "./TopicDetails";
 import ErrorPage from "../../utilities/ErrorPage";

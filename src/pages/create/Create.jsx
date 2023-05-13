@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
-import Select from "react-select";
-import { useCollection } from "../../hooks/useCollection";
-import { timestamp } from "../../firebase/config";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useFirestore } from "../../hooks/useFirestore";
 import { useNavigate } from "react-router-dom";
+import { useCollection } from "../../hooks/useCollection";
+//components
 import FormInput from "../../utilities/FormInput";
 import Button from "../../utilities/Button";
 import ErrorPage from "../../utilities/ErrorPage";
+//utilites
+import Select from "react-select";
+import { timestamp } from "../../firebase/config";
+
 export const categories = [
   { value: "hobby", label: "Hobby" },
   { value: "fashion", label: "Fashion" },
@@ -93,13 +96,17 @@ const Create = () => {
               value={name}
             />
           </div>
-          <div className="mb-4">
-            <FormInput
-              label="Details:"
+          <div className=" flex flex-col mb-4">
+            <div>
+              Details: <span className="text-sm">(max 150letters)</span>
+            </div>
+            <textarea
+              className="border-2 mt-4"
               required
               type="text"
               onChange={(e) => setDetails(e.target.value)}
               value={details}
+              maxlength="150"
             />
           </div>
           <div className="mb-4">

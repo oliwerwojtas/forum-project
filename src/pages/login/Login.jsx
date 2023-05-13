@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { useLogin } from "../../hooks/useLogin";
 import { useNavigate } from "react-router-dom";
+//components
 import FormInput from "../../utilities/FormInput";
 import Button from "../../utilities/Button";
-import { projectAuth, projectFirestore } from "../../firebase/config";
 import ErrorPage from "../../utilities/ErrorPage";
+//utilities
+import { projectAuth, projectFirestore } from "../../firebase/config";
 import { Link } from "react-router-dom";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -42,7 +45,10 @@ const Login = () => {
 
   return (
     <div className="flex justify-center items-center mt-14">
-      <form className="bg-white w-80 shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
+      <form
+        className="bg-white w-80 shadow-md rounded px-8 pt-6 pb-8 mb-4 dark:bg-[#eff1fd]"
+        onSubmit={handleSubmit}
+      >
         <h2 className="text-center font-bold text-xl mb-6">Login</h2>
         <div className="mb-4">
           <FormInput

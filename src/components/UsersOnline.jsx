@@ -1,8 +1,11 @@
 import { useCollection } from "../hooks/useCollection";
+//components
 import Avatar from "./Avatar";
 import ErrorPage from "../utilities/ErrorPage";
+//utilities
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+
 const UsersOnline = () => {
   const { error, documents } = useCollection("users");
 

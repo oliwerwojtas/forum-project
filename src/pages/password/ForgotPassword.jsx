@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+//components
 import FormInput from "../../utilities/FormInput";
 import Button from "../../utilities/Button";
-import { projectAuth } from "../../firebase/config";
 import ErrorPage from "../../utilities/ErrorPage";
+//utilities
+import { projectAuth } from "../../firebase/config";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -36,7 +38,10 @@ const ForgotPassword = () => {
   return (
     <div className="flex justify-center items-center mt-14">
       <ToastContainer />
-      <form className="bg-white w-80 shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
+      <form
+        className="bg-white w-80 shadow-md rounded px-8 pt-6 pb-8 mb-4 dark:bg-[#eff1fd]"
+        onSubmit={handleSubmit}
+      >
         <h2 className="text-center font-bold text-xl mb-6">Forgot Password</h2>
         <div className="mb-4">
           <FormInput

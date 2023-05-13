@@ -1,18 +1,20 @@
-import { NavLink } from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
-import Logo from "../assets/logo.svg";
 import { useAuthContext } from "../hooks/useAuthContext";
+//components
 import Avatar from "./Avatar";
-import { ThemeSwitcher } from "../utilities/ThemeToggle";
+import ThemeSwitcher from "../utilities/ThemeToggle";
 import Button from "../utilities/Button";
 import ErrorPage from "../utilities/ErrorPage";
+//utilities
+import Logo from "../assets/logo.svg";
+import { NavLink } from "react-router-dom";
 
 const MainNavigation = () => {
   const { logout, error } = useLogout();
   const { user } = useAuthContext();
 
   return (
-    <nav className="w-full py-6 px-0 box-border sticky top-0 z-20 bg-white text-lg dark:bg-[#777a92]">
+    <nav className="w-full py-6 px-0 box-border sticky top-0 z-20 bg-white text-lg dark:bg-[#777a92] ">
       <ul className="flex justify-end items-center px-4">
         <li className="flex items-center mr-auto font-bold">
           <span>TalkTogether</span>
@@ -30,7 +32,7 @@ const MainNavigation = () => {
               </NavLink>
 
               <NavLink to="/signup" className="relative group dark:text-white">
-                Singup
+                Sign up
                 <div className="absolute w-full h-0.5 bg-black scale-x-0 group-hover:scale-x-100 transition-transform dark:bg-white/80"></div>
               </NavLink>
             </>

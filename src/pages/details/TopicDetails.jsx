@@ -1,9 +1,12 @@
-import Avatar from "../../components/Avatar";
-import { useFirestore } from "../../hooks/useFirestore";
-import { Link } from "react-router-dom";
-import Button from "../../utilities/Button";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import { useFirestore } from "../../hooks/useFirestore";
+//components
+import Avatar from "../../components/Avatar";
+import Button from "../../utilities/Button";
+//utilities
+import { Link } from "react-router-dom";
+
 const TopicDetails = ({ topic, createdBy }) => {
   const navigate = useNavigate();
   const { deleteDocument } = useFirestore("projects");
@@ -15,20 +18,17 @@ const TopicDetails = ({ topic, createdBy }) => {
       navigate("/");
     }
   };
-  const topicDetails = [
-    { title: "Name", content: topic.name },
-    { title: "Date", content: topic.date.toDate().toLocaleDateString() },
-    { title: "Details", content: topic.details },
-  ];
 
   return (
-    <div className="lg: flex flex-col justify-around min-w-[50%] h-96 px-2 py-2 bg-white mb-4 rounded dark:bg-[#777a92]">
+    <div className="lg: flex flex-col justify-around min-w-[50%] h-96 px-2 py-2 bg-white mb-2 rounded dark:bg-[#777a92]">
       <div className="flex justify-around">
-        <h2 className="font-bold mb-4 ">Topic Details</h2>
-        <p>Date: {topic.date.toDate().toLocaleDateString()}</p>
+        <h2 className="font-bold mb-4 w-full break-words sm:text-sm" title={topic.name}>
+          {topic.name}
+        </h2>
+        {/* <p>Date: {topic.date.toDate().toLocaleDateString()}</p> */}
       </div>
       <div className="flex justify-around">
-        <p className="">{topic.name}</p>
+        <p className="dark:text-white w-full break-words sm:text-sm">{topic.details}</p>
       </div>
       <div className="font-bold">Assigned Users:</div>
       <div className="flex flex-wrap">

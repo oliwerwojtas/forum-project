@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
 import Avatar from "../components/Avatar";
+//utilities
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+
 const Sorting = ({ topics, sortingOrder }) => {
   const sortedTopics = [...topics].sort((a, b) => {
     const dateA = a.date.toDate();
@@ -28,7 +30,7 @@ const Sorting = ({ topics, sortingOrder }) => {
                 </div>
                 <div>
                   <p className="text-gray-500 dark:text-[white] text-sm ml-2 ">
-                    Date: {topic.date.toDate().toDateString()}
+                    {topic.date.toDate().toDateString()}
                   </p>
                 </div>
               </div>

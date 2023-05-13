@@ -1,8 +1,9 @@
-import { NavLink } from "react-router-dom";
 import { useState } from "react";
+//components
 import Modal from "../utilities/Modal";
-
 import Button from "../utilities/Button";
+//utilities
+import { NavLink } from "react-router-dom";
 
 const Sidebar = ({ handleSort }) => {
   const [isOpen, setIsOpen] = useState(false);

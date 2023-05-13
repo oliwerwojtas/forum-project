@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useSignup } from "../../hooks/useSignup";
+//components
 import FormInput from "../../utilities/FormInput";
 import Button from "../../utilities/Button";
 import ErrorPage from "../../utilities/ErrorPage";
+//utilities
 import { projectFirestore } from "../../firebase/config";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -76,8 +78,11 @@ const Signup = () => {
   return (
     <div className="flex justify-center items-center mt-14">
       <ToastContainer />
-      <form className="bg-white w-80 shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
-        <h2 className="text-center font-bold text-xl mb-6 ">Sing up</h2>
+      <form
+        className="bg-white w-80 shadow-md rounded px-8 pt-6 pb-8 mb-4 dark:bg-[#eff1fd]"
+        onSubmit={handleSubmit}
+      >
+        <h2 className="text-center font-bold text-xl mb-6 ">Sign up</h2>
         <FormInput
           label="Email:"
           type="email"

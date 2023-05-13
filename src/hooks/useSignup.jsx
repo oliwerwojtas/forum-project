@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { projectAuth, projectStorage, projectFirestore } from "../firebase/config";
 import { useAuthContext } from "./useAuthContext";
+import { projectAuth, projectStorage, projectFirestore } from "../firebase/config";
 
 export const useSignup = () => {
   const [error, setError] = useState(null);

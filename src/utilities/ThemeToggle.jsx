@@ -28,3 +28,4 @@ export const ThemeSwitcher = () => {
     />
   );
 };
+export default ThemeSwitcher;
