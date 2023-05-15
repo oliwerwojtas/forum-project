@@ -8,6 +8,8 @@ import ErrorPage from "../../utilities/ErrorPage";
 //utilities
 import { projectAuth, projectFirestore } from "../../firebase/config";
 import { Link } from "react-router-dom";
+import { RiLockPasswordFill } from "react-icons/ri";
+import { FiPlusCircle } from "react-icons/fi";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -69,17 +71,19 @@ const Login = () => {
           />
         </div>
         <div className="flex justify-between">
-          <Link to="/signup" className=" relative group">
-            Create an account
-            <div className="absolute w-full h-0.5 bg-black scale-x-0 group-hover:scale-x-100 transition-transform"></div>
-          </Link>
-          <Link to="/forgotPassword" className=" relative group">
-            Reset
+          <Link to="/forgotPassword" className="relative group text-sm flex items-end">
+            Forgot Password?
+            <RiLockPasswordFill size={20} className="ml-2 mb-0.5" />
             <div className="absolute w-full h-0.5 bg-black scale-x-0 group-hover:scale-x-100 transition-transform"></div>
           </Link>
         </div>
         <div className="flex items-center justify-between mt-4">
           <Button text="Login" disabled={loading} />
+          <Link to="/signup" className=" relative group text-sm flex items-end">
+            Create an account
+            <FiPlusCircle size={20} className="ml-1 mb-0.5" />
+            <div className="absolute w-full h-0.5 bg-black scale-x-0 group-hover:scale-x-100 transition-transform"></div>
+          </Link>
         </div>
 
         {error && <ErrorPage message={error} />}

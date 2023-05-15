@@ -8,6 +8,7 @@ import { projectAuth } from "../../firebase/config";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -52,8 +53,9 @@ const ForgotPassword = () => {
             required
           />
         </div>
-        <div>
-          <Link to="/login" className=" relative group">
+        <div className="flex">
+          <Link to="/login" className=" relative group flex items-end">
+            <AiOutlineArrowLeft size={20} className="mb-0.5" />
             Back to login
             <div className="absolute w-full h-0.5 bg-black scale-x-0 group-hover:scale-x-100 transition-transform"></div>
           </Link>

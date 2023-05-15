@@ -13,7 +13,7 @@ const Details = () => {
   }
 
   if (!document) {
-    return <div>Loading...</div>;
+    return <div className="flex justify-center">Loading...</div>;
   }
 
   return (
