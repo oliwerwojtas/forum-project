@@ -7,7 +7,7 @@ import UsersOnline from "../components/UsersOnline";
 //utilities
 import { Outlet } from "react-router-dom";
 import { motion } from "framer-motion";
-
+import Login from "../pages/login/Login";
 const RootLayout = () => {
   const { user } = useAuthContext();
 
@@ -33,9 +33,14 @@ const RootLayout = () => {
         >
           <div>{user && <UsersOnline />}</div>
           <div>
-            {user && <Sidebar handleSort={handleSort} />}
-
-            <Outlet context={[sortingOrder, setSortingOrder]} />
+            {user ? (
+              <>
+                <Sidebar handleSort={handleSort} />
+                <Outlet context={[sortingOrder, setSortingOrder]} />
+              </>
+            ) : (
+              <Login />
+            )}
           </div>
         </motion.div>
       </div>
