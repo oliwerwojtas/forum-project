@@ -5,11 +5,9 @@ import MainNavigation from "../components/MainNavigation";
 import Sidebar from "../components/Menu";
 import UsersOnline from "../components/UsersOnline";
 //utilities
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { motion } from "framer-motion";
-import Login from "../pages/login/Login";
-import Signup from "../pages/signup/Signup";
-import ForgotPassword from "../pages/password/ForgotPassword";
+
 const RootLayout = () => {
   const { user } = useAuthContext();
 
@@ -38,9 +36,9 @@ const RootLayout = () => {
             {user && (
               <div>
                 <Sidebar handleSort={handleSort} />
-                <Outlet context={[sortingOrder, setSortingOrder]} />
               </div>
             )}
+            <Outlet context={[sortingOrder, setSortingOrder]} />
           </div>
         </motion.div>
       </div>
