@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useLogin } from "../../hooks/useLogin";
 import { useNavigate } from "react-router-dom";
 //components
-import FormInput from "../../utilities/FormInput";
-import Button from "../../utilities/Button";
-import ErrorPage from "../../utilities/ErrorPage";
+import FormInput from "../../components/reusable/FormInput";
+import Button from "../../components/reusable/Button";
+import ErrorPage from "../../components/reusable/ErrorPage";
 //utilities
 import { projectAuth, projectFirestore } from "../../firebase/config";
 import { Link } from "react-router-dom";

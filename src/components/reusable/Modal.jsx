@@ -1,4 +1,4 @@
-import Create from "../pages/create/Create";
+import Create from "../../pages/create/Create";
 import Button from "./Button";
 //utilities
 import ReactModal from "react-modal";

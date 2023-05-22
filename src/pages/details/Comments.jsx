@@ -3,8 +3,8 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 import { useFirestore } from "../../hooks/useFirestore";
 //components
 import Avatar from "../../components/Avatar";
-import Button from "../../utilities/Button";
-import Pagination from "../../utilities/Pagination";
+import Button from "../../components/reusable/Button";
+import Pagination from "../../components/reusable/Pagination";
 
 const Comments = ({ topic }) => {
   const [comment, setComment] = useState();

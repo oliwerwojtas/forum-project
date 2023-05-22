@@ -1,7 +1,7 @@
 import { useState } from "react";
 //components
-import Modal from "../utilities/Modal";
-import Button from "../utilities/Button";
+import Modal from "../components/reusable/Modal";
+import Button from "../components/reusable/Button";
 //utilities
 import { NavLink } from "react-router-dom";
 import { RiHome2Line, FiPlusCircle, RiSortAsc } from "react-icons/all";

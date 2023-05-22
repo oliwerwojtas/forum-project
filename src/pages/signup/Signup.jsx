@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useSignup } from "../../hooks/useSignup";
 //components
-import FormInput from "../../utilities/FormInput";
-import Button from "../../utilities/Button";
-import ErrorPage from "../../utilities/ErrorPage";
+import FormInput from "../../components/reusable/FormInput";
+import Button from "../../components/reusable/Button";
+import ErrorPage from "../../components/reusable/ErrorPage";
 //utilities
 import { projectFirestore } from "../../firebase/config";
 import { ToastContainer, toast } from "react-toastify";

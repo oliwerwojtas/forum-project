@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import light from "../assets/light.svg";
-import dark from "../assets/dark.svg";
+import light from "../../assets/light.svg";
+import dark from "../../assets/dark.svg";
 export const ThemeSwitcher = () => {
   const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "light");
 

@@ -1,7 +1,7 @@
 import { useCollection } from "../hooks/useCollection";
 //components
 import Avatar from "./Avatar";
-import ErrorPage from "../utilities/ErrorPage";
+import ErrorPage from "../components/reusable/ErrorPage";
 //utilities
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";

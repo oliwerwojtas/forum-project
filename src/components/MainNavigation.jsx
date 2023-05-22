@@ -2,9 +2,9 @@ import { useLogout } from "../hooks/useLogout";
 import { useAuthContext } from "../hooks/useAuthContext";
 //components
 import Avatar from "./Avatar";
-import ThemeSwitcher from "../utilities/ThemeToggle";
-import Button from "../utilities/Button";
-import ErrorPage from "../utilities/ErrorPage";
+import ThemeSwitcher from "../components/reusable/ThemeToggle";
+import Button from "../components/reusable/Button";
+import ErrorPage from "../components/reusable/ErrorPage";
 //utilities
 import Logo from "../assets/logo.svg";
 import { NavLink } from "react-router-dom";

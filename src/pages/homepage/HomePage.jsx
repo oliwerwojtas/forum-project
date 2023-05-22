@@ -3,8 +3,8 @@ import { useOutletContext } from "react-router-dom";
 import { useCollection } from "../../hooks/useCollection";
 //components
 import TopicList from "../../components/TopicList";
-import Button from "../../utilities/Button";
-import ErrorPage from "../../utilities/ErrorPage";
+import Button from "../../components/reusable/Button";
+import ErrorPage from "../../components/reusable/ErrorPage";
 //utilities
 import { categories } from "../create/Create";
 

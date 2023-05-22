@@ -1,7 +1,7 @@
 import { useState } from "react";
 //components
 import Sorting from "../components/Sorting";
-import Pagination from "../utilities/Pagination";
+import Pagination from "../components/reusable/Pagination";
 //utilities
 import { motion } from "framer-motion";
 

@@ -3,7 +3,7 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 import { useFirestore } from "../../hooks/useFirestore";
 //components
 import Avatar from "../../components/Avatar";
-import Button from "../../utilities/Button";
+import Button from "../../components/reusable/Button";
 //utilities
 import { Link } from "react-router-dom";
 

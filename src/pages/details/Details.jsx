@@ -3,7 +3,7 @@ import { useDocument } from "../../hooks/useDocument";
 //components
 import Comments from "./Comments";
 import TopicDetails from "./TopicDetails";
-import ErrorPage from "../../utilities/ErrorPage";
+import ErrorPage from "../../components/reusable/ErrorPage";
 
 const Details = () => {
   const { id } = useParams();

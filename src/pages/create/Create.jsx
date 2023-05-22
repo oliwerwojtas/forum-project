@@ -4,9 +4,9 @@ import { useFirestore } from "../../hooks/useFirestore";
 import { useNavigate } from "react-router-dom";
 import { useCollection } from "../../hooks/useCollection";
 //components
-import FormInput from "../../utilities/FormInput";
-import Button from "../../utilities/Button";
-import ErrorPage from "../../utilities/ErrorPage";
+import FormInput from "../../components/reusable/FormInput";
+import Button from "../../components/reusable/Button";
+import ErrorPage from "../../components/reusable/ErrorPage";
 //utilites
 import Select from "react-select";
 import { timestamp } from "../../firebase/config";
