@@ -34,7 +34,7 @@ const Login = () => {
       if (doc.exists) {
         login(email, password);
 
-        navigate("/");
+        navigate("/", { replace: true });
       } else {
         setError("User not found.");
       }

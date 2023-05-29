@@ -33,11 +33,8 @@ const RootLayout = () => {
         >
           <div>{user && <UsersOnline />}</div>
           <div>
-            {user && (
-              <div>
-                <Sidebar handleSort={handleSort} />
-              </div>
-            )}
+            {user && <Sidebar handleSort={handleSort} />}
+
             <Outlet context={[sortingOrder, setSortingOrder]} />
           </div>
         </motion.div>
